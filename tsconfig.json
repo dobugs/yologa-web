@@ -20,7 +20,14 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": [
-    "src"
-  ]
+  "references": [
+    {
+      "path": "packages/map"
+    },
+    {
+      "path": "packages/app"
+    }
+  ],
+  "include": [],
+  "exclude": ["packages/**/dist/**"]
 }
