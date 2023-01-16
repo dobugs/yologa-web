@@ -1,26 +1,19 @@
+import { LayoutComponent } from 'components';
+import { PATH } from 'data/pages';
 import React from 'react';
-
-import { funA } from '@common/map';
-
-import logo from './logo.svg';
-
-import './App.css';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
 function App() {
-  funA();
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Suspense fallback={null}>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<LayoutComponent.Base />}>
+            <Route path={PATH.ROOT} element={<LayoutComponent.Base />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </React.Suspense>
   );
 }
 
