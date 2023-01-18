@@ -1,5 +1,3 @@
-const funA = () => {
-  console.log('map')
-}
-
-export { funA }
+export * as MapComponent from './components'
+export * from './lib'
+export * from './types'
