@@ -7,8 +7,8 @@
   ],
   "scripts": {
     "lint": "eslint ./packages --ext .ts,.tsx,.js,.jsx --cache",
-    "common-map": "yarn workspace @common/map",
-    "app": "yarn workspace app"
+    "app": "yarn workspace app",
+    "map": "yarn workspace @common/map"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -16,6 +16,7 @@
     "@babel/plugin-transform-react-jsx": "^7.20.7",
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
+    "@common/map": "workspace:^",
     "@craco/craco": "^7.0.0",
     "@emotion/babel-preset-css-prop": "^11.10.0",
     "@emotion/react": "^11.10.5",
@@ -54,10 +55,8 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "react-test-renderer": "^18.2.0",
+    "recoil": "^0.7.6",
     "typescript": "^4.9.4",
     "web-vitals": "^2.1.4"
-  },
-  "dependencies": {
-    "recoil": "^0.7.6"
   }
 }
