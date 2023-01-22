@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { Outlet } from 'react-router-dom';
 
-function Base() {
+function Base({ children }: PropsWithChildren) {
   return (
     <>
-      <Outlet />
+      <header></header>
+      <main>{children}</main>
+      <footer />
     </>
   );
 }

@@ -2,14 +2,23 @@ import React from 'react';
 import { RecoilRoot } from 'recoil';
 import ReactDOM from 'react-dom/client';
 
+import { MapProvider, MAP_PROVIDER } from '@common/map';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+
 root.render(
   <React.StrictMode>
     <RecoilRoot>
-      <App />
+      <MapProvider
+        apiKey={process.env.REACT_APP_GOOGLE_MAP_KEY}
+        provider={MAP_PROVIDER.GOOGLE}
+        libraries={['geometry', 'places', 'drawing']}
+      >
+        <App />
+      </MapProvider>
     </RecoilRoot>
   </React.StrictMode>,
 );
