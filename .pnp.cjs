@@ -88,6 +88,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["query-string", "npm:8.1.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:18.2.0"],\
+            ["react-icons", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:4.7.1"],\
             ["react-scripts", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:5.0.1"],\
             ["react-test-renderer", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:18.2.0"],\
             ["recoil", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:0.7.6"],\
@@ -6517,7 +6518,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:18.2.0"],\
             ["react-helmet", "virtual:4ec38f42faeb771baf85fda0ce6a6b1f1678909f834d97cb444adbdde3bea8bf31c8dc6f5810b58233fa8206133bc7b4b32e22260504bc446c288a274ed84944#npm:6.1.0"],\
-            ["react-icons", "virtual:4ec38f42faeb771baf85fda0ce6a6b1f1678909f834d97cb444adbdde3bea8bf31c8dc6f5810b58233fa8206133bc7b4b32e22260504bc446c288a274ed84944#npm:4.7.1"],\
+            ["react-icons", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:4.7.1"],\
             ["react-router-dom", "virtual:4ec38f42faeb771baf85fda0ce6a6b1f1678909f834d97cb444adbdde3bea8bf31c8dc6f5810b58233fa8206133bc7b4b32e22260504bc446c288a274ed84944#npm:6.6.2"],\
             ["react-scripts", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:5.0.1"],\
             ["recoil", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:0.7.6"],\
@@ -6557,7 +6558,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:18.2.0"],\
             ["react-helmet", "virtual:4ec38f42faeb771baf85fda0ce6a6b1f1678909f834d97cb444adbdde3bea8bf31c8dc6f5810b58233fa8206133bc7b4b32e22260504bc446c288a274ed84944#npm:6.1.0"],\
-            ["react-icons", "virtual:4ec38f42faeb771baf85fda0ce6a6b1f1678909f834d97cb444adbdde3bea8bf31c8dc6f5810b58233fa8206133bc7b4b32e22260504bc446c288a274ed84944#npm:4.7.1"],\
+            ["react-icons", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:4.7.1"],\
             ["react-router-dom", "virtual:4ec38f42faeb771baf85fda0ce6a6b1f1678909f834d97cb444adbdde3bea8bf31c8dc6f5810b58233fa8206133bc7b4b32e22260504bc446c288a274ed84944#npm:6.6.2"],\
             ["react-scripts", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:5.0.1"],\
             ["recoil", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:0.7.6"],\
@@ -16724,10 +16725,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:4ec38f42faeb771baf85fda0ce6a6b1f1678909f834d97cb444adbdde3bea8bf31c8dc6f5810b58233fa8206133bc7b4b32e22260504bc446c288a274ed84944#npm:4.7.1", {\
-          "packageLocation": "./.yarn/__virtual__/react-icons-virtual-4b78960b55/0/cache/react-icons-npm-4.7.1-27c284b383-ed3cbdc5fc.zip/node_modules/react-icons/",\
+        ["virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:4.7.1", {\
+          "packageLocation": "./.yarn/__virtual__/react-icons-virtual-30b7920242/0/cache/react-icons-npm-4.7.1-27c284b383-ed3cbdc5fc.zip/node_modules/react-icons/",\
           "packageDependencies": [\
-            ["react-icons", "virtual:4ec38f42faeb771baf85fda0ce6a6b1f1678909f834d97cb444adbdde3bea8bf31c8dc6f5810b58233fa8206133bc7b4b32e22260504bc446c288a274ed84944#npm:4.7.1"],\
+            ["react-icons", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:4.7.1"],\
             ["@types/react", "npm:18.0.26"],\
             ["react", "npm:18.2.0"]\
           ],\
@@ -20027,6 +20028,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["query-string", "npm:8.1.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:18.2.0"],\
+            ["react-icons", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:4.7.1"],\
             ["react-scripts", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:5.0.1"],\
             ["react-test-renderer", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:18.2.0"],\
             ["recoil", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:0.7.6"],\

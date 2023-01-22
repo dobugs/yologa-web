@@ -11,8 +11,13 @@ const global = css`
     padding: 0;
   }
 
+  html {
+    font-size: 62.5%;
+  }
+
   body {
     font-family: 'NotoSansKR';
+    font-size: 1.6rem;
   }
 
   * {
