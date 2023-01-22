@@ -1,0 +1,59 @@
+name: CD-DEVELOPMENT
+on:
+  push:
+    branches:
+      # 설치를 위한 Git Branch명을 적어 주세요
+      - develop
+jobs:
+  cd:
+    runs-on: sre-runner
+    strategy:
+      matrix:
+        node-version: [ 18.12.1 ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          # Disabling shallow clone is recommended for improving relevancy of reporting
+          fetch-depth: 0
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Cache yarn modules
+        id: cache-yarn-modules
+        uses: actions/cache@v3
+        with:
+          path: ./yarn
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      - name: Run build
+        run: yarn ci && yarn app build:dev
+        env:
+          CI: false
+      # - name: Docker build
+      #   run: docker build --build-arg VERSION_TEXT=${VERSION_TEXT} -f Dockerfile -t registry.dev.kurlycorp.kr/cps/la-cms-front-react:dev-dev03 .
+      # - name : Docker Login
+      #   run: docker login --username develop --password ${{ secrets.DEV_DOCKER_LOGIN_PASSWORD }} registry.dev.kurlycorp.kr
+      #   shell: bash
+      # - name: Run docker push
+      #   run: docker push registry.dev.kurlycorp.kr/cps/la-cms-front-react:dev-dev03
+      #   shell: bash
+      # - name: Rancher auto deploy
+      #   uses: sekassel-research/actions-rancher-update@1.1.4
+      #   with:
+      #     rancher_url: https://rancher.dev.kurly.services
+      #     rancher_access: ${{ secrets.RANCHER_ACCESS }}
+      #     rancher_key: ${{ secrets.RANCHER_KEY }}
+      #     project_id: 1a5
+      #     stack_name: la-cms-front-react-web
+      #     service_name: la-cms-front-react-dev03
+      #     docker_image: registry.dev.kurlycorp.kr/cps/la-cms-front-react:dev-dev03
+      - name: Send slack message
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          author_name: Rancher 배포 - DEV 환경 (lacms-dev03.dev.kurlycorp.kr)
+          fields: repo,message,commit,author #action,eventName,ref,workflow,job,took
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()

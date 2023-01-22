@@ -21,5 +21,6 @@ module.exports = {
   rules: {
     'no-undef': 'off',
     'react/no-unknown-property': 0,
+    '@typescript-eslint/no-var-requires': 'off',
   },
 };
