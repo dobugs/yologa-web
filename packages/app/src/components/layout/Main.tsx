@@ -1,11 +1,18 @@
-import React, { PropsWithChildren } from 'react';
+import React from 'react';
 import { CommonComponent } from 'components';
+import { Outlet } from 'react-router-dom';
 
-function Main({ children }: PropsWithChildren) {
+function Main() {
   return (
     <>
-      <CommonComponent.Header type={'default'} />
-      <main>{children}</main>
+      <CommonComponent.Header />
+      <main>
+        <section>
+          <div>
+            <Outlet />
+          </div>
+        </section>
+      </main>
       <footer />
     </>
   );

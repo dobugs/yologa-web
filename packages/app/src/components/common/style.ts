@@ -25,7 +25,7 @@ const header: CSSObject = {
 
     '& img': {
       maxWidth: 240,
-      height: '7.2rem',
+      height: 'calc(7.2rem - 1px)',
     },
   },
 

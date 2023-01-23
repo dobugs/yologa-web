@@ -1,14 +1,12 @@
 import { css } from '@emotion/react';
 import React from 'react';
-import Spinner from 'Spinner';
+import Spinner from 'components/Spinner';
+import { useParams } from 'react-router-dom';
+import { useOAuthCallback } from 'hooks';
 
 function Callback() {
-  /**
-   * @todo
-   * 1. OAuthProviders type
-   * 2. Component Records
-   * 3. Render component -> send token
-   */
+  const { provider } = useParams();
+  useOAuthCallback(provider);
 
   return (
     <>

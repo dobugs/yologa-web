@@ -7,7 +7,9 @@ function App() {
     <React.Suspense fallback={null}>
       <BrowserRouter>
         <Routes>
-          <Route path={'callback'} element={<Callback />} />
+          <Route path={'callback'}>
+            <Route path={':provider'} element={<Callback />} />
+          </Route>
 
           {/* 404 */}
           <Route path={'*'} element={<>몰라요</>} />

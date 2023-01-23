@@ -1,5 +1,5 @@
 import { atom } from 'recoil';
-import { IModalState } from 'types';
+import { IModalState } from 'types/ui';
 
 const alertState = atom<IModalState>({
   key: 'alert',

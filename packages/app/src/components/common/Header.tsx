@@ -4,13 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import logo from 'assets/svg/logo.svg';
 import { header } from './style';
 import { IoIosArrowBack } from 'react-icons/io';
+import { useRecoilValue } from 'recoil';
 
-interface Props {
-  type: 'default' | 'back';
-}
+import { UIStore } from 'stores';
 
-function Header({ type }: Props) {
+function Header() {
   const navigate = useNavigate();
+
+  const { type } = useRecoilValue(UIStore.headerState);
 
   return (
     <header css={header}>

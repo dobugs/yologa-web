@@ -32,7 +32,7 @@ const PATH: Record<PATH_KEY, string> = {
   [PATH_KEY.MY_PAGE]: 'my-page',
   [PATH_KEY.PROFILE]: 'my-page/profile',
   [PATH_KEY.NOTIFICATION]: 'my-page/notification',
-  [PATH_KEY.NOTIFICATION_DETAIL]: 'my-pagenotification/:id',
+  [PATH_KEY.NOTIFICATION_DETAIL]: 'my-page/notification/:id',
   [PATH_KEY.GUIDE]: 'my-page/guide',
   [PATH_KEY.SETTINGS]: 'my-page/settings',
 
