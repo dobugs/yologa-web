@@ -5,4 +5,9 @@ const sectionWrapper: CSSObject = {
   maxWidth: 480,
 };
 
-export { sectionWrapper };
+const main = ({ isHeaderShow, isNavShow }: { isHeaderShow: boolean; isNavShow: boolean }): CSSObject => ({
+  ...(isHeaderShow && { marginTop: 72 }),
+  ...(isNavShow && { marginBottom: 72 }),
+});
+
+export { sectionWrapper, main };

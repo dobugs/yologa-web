@@ -1,5 +1,5 @@
+import { PATH, PATH_KEY } from 'data/pages';
 import React from 'react';
-import { PATH } from 'data/pages';
 
 interface IModalState {
   loading: boolean;
@@ -13,13 +13,17 @@ interface IHeaderState {
   type: 'default' | 'back';
 }
 
-/** Footer */
-const FooterNav = [PATH.MY_PAGE, PATH.RUNNING_CREW, PATH.CHAT] as const;
-type FooterNavType = (typeof FooterNav)[number];
+/** Nav */
+type NavType = (typeof PATH)[PATH_KEY.MY_PAGE];
 
-interface IFooterState {
+interface INavState {
   isShow: boolean;
-  activeNav: FooterNavType;
+  activeNav: NavType;
 }
 
-export type { IModalState, IHeaderState, IFooterState };
+interface INavIconVariant {
+  default: string;
+  activated: string;
+}
+
+export type { IModalState, IHeaderState, NavType, INavState, INavIconVariant };
