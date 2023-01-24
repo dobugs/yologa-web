@@ -7,7 +7,7 @@ const login: CSSObject = {
   alignItems: 'center',
   gap: 8,
   padding: 24,
-  height: '100vh',
+  height: 'calc(var(--vh, 1vh) * 100)',
 };
 
 export { login };
