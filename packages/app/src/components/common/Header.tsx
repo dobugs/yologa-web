@@ -4,29 +4,33 @@ import { useNavigate } from 'react-router-dom';
 import logo from 'assets/svg/logo.svg';
 import { header } from './style';
 import { IoIosArrowBack } from 'react-icons/io';
-import { useRecoilValue } from 'recoil';
+import { IHeaderState } from 'types/ui';
 
-import { UIStore } from 'stores';
+type Props = IHeaderState;
 
-function Header() {
+function Header({ type, isShow }: Props) {
   const navigate = useNavigate();
 
-  const { type } = useRecoilValue(UIStore.headerState);
+  if (!isShow) {
+    return null;
+  }
 
   return (
-    <header css={header}>
-      <div className="left">
-        {type === 'back' && (
-          <button type="button" className="back" onClick={() => navigate(-1)}>
-            <IoIosArrowBack size={24} />
-          </button>
-        )}
-      </div>
-      <div className="logo">
-        <img src={logo} alt={'back'} />
-      </div>
-      <div className="right"></div>
-    </header>
+    <>
+      <header css={header}>
+        <div className="left">
+          {type === 'back' && (
+            <button type="button" className="back" onClick={() => navigate(-1)}>
+              <IoIosArrowBack size={24} />
+            </button>
+          )}
+        </div>
+        <div className="logo">
+          <img src={logo} alt={'back'} />
+        </div>
+        <div className="right"></div>
+      </header>
+    </>
   );
 }
 

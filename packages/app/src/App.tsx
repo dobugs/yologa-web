@@ -11,8 +11,10 @@ function App() {
         <Routes>
           <Route element={<LayoutComponent.Base />}>
             <Route element={<LayoutComponent.UnAuthorize />}>
-              <Route index path={PATH.ROOT} element={<SplashPages.Splash />} />
-              <Route path={PATH.LOGIN} element={<LoginPages.Login />} />
+              <Route element={<LayoutComponent.Main />}>
+                <Route index path={PATH.ROOT} element={<SplashPages.Splash />} />
+                <Route path={PATH.LOGIN} element={<LoginPages.Login />} />
+              </Route>
             </Route>
 
             <Route element={<LayoutComponent.Authorize />}>
