@@ -2,7 +2,7 @@ import { CSSObject, keyframes } from '@emotion/react';
 
 const wrap: CSSObject = {
   width: '100%',
-  height: '100vh',
+  height: 'calc(var(--vh, 1vh) * 100)',
   backgroundColor: '#fff',
 
   display: 'flex',

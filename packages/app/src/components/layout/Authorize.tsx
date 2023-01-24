@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, Outlet, useSearchParams } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { authState } from 'stores/auth';
 
