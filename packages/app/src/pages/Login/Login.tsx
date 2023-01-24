@@ -2,21 +2,29 @@ import React, { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { UIStore } from 'stores';
 
-import { LoginComponent } from 'components';
+import { LoginComponent, CommonComponent } from 'components';
 import { login } from './style';
+import { AuthAPI } from 'api';
+import { OAUTH_PROVIDER } from 'data/oauth';
 
 function Login() {
   const setHeaderState = useSetRecoilState(UIStore.headerState);
+  const setNavState = useSetRecoilState(UIStore.navState);
 
   useEffect(() => {
     setHeaderState(state => ({ ...state, isShow: false }));
+    setNavState(state => ({ ...state, isShow: false }));
   }, []);
 
-  const handleClickGoogle = () => {
-    //todo
+  const handleClickGoogle = async () => {
+    const { data } = await AuthAPI.login(OAUTH_PROVIDER.GOOGLE, `http://localhost:3001/callback/google`);
+
+    window.open(data.oauthLoginLink);
   };
-  const handleClickKakao = () => {
-    //todo
+  const handleClickKakao = async () => {
+    const { data } = await AuthAPI.login(OAUTH_PROVIDER.KAKAO, `http://localhost:3001/callback/kakao`);
+
+    window.open(data.oauthLoginLink);
   };
 
   return (
@@ -24,6 +32,7 @@ function Login() {
       <LoginComponent.Hero />
       <LoginComponent.Description />
       <LoginComponent.Actions onClickGoogle={handleClickGoogle} onClickKakao={handleClickKakao} />
+      <CommonComponent.Copyright />
     </div>
   );
 }

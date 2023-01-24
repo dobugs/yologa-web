@@ -1,12 +1,23 @@
 import { css } from '@emotion/react';
-import React from 'react';
+import React, { useEffect, useMemo } from 'react';
 import Spinner from 'components/Spinner';
-import { useParams } from 'react-router-dom';
-import { useOAuthCallback } from 'hooks';
+import { useParams, useSearchParams } from 'react-router-dom';
+import { AuthAPI } from 'api';
+import { OAUTH_PROVIDER } from 'types/oauth';
 
 function Callback() {
   const { provider } = useParams();
-  useOAuthCallback(provider);
+  const [sp] = useSearchParams();
+
+  const code = sp.get('code');
+
+  if (!provider) {
+    return <>올바른 접근이 아닙니다.</>;
+  }
+
+  useEffect(() => {
+    AuthAPI.login(provider as OAUTH_PROVIDER, location.origin + location.pathname, code!);
+  }, []);
 
   return (
     <>

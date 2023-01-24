@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "craco start",
     "start:dev": "env-cmd -f .env.dev yarn start",
     "deploy:dev": "node scripts/deploy dev",
     "deploy:prod": "node scripts/deploy prod",

@@ -1,7 +1,4 @@
-enum OAUTH_PROVIDER {
-  GOOGLE = 'google',
-  KAKAO = 'kakao',
-}
+import { OAUTH_PROVIDER } from 'types/oauth';
 
 function useOAuthCallback(pv: unknown) {
   if ((pv as string) in OAUTH_PROVIDER) {

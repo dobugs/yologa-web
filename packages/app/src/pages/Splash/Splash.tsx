@@ -21,6 +21,8 @@ function Splash() {
     }, 1500);
   });
 
+  console.log(location.href);
+
   return (
     <div css={wrap}>
       <div css={logoArea}>

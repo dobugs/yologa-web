@@ -1,10 +1,16 @@
 import { CSSObject } from '@emotion/react';
 
 const header: CSSObject = {
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  zIndex: 1000,
+  width: '100%',
   display: 'flex',
   alignItems: 'center',
   height: '7.2rem',
   borderBottom: '1px solid #DBDBDB',
+  background: '#fff',
 
   '& > .left': {
     flex: '0 0 4.8rem',
