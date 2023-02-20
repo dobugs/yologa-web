@@ -1,6 +1,11 @@
-const enum OAUTH_PROVIDER {
-  GOOGLE = 'google',
-  KAKAO = 'kakao',
-}
+const PROVIDER = {
+  google: 'google',
+  kakao: 'kakao',
+} as const;
 
-export { OAUTH_PROVIDER };
+const REDIRECT_URL = {
+  google: `${process.env.REACT_APP_DOBUGS_AUTH_WEB}/callback/google`,
+  kakao: `${process.env.REACT_APP_DOBUGS_AUTH_WEB}/callback/kakao`,
+} as const;
+
+export { PROVIDER, REDIRECT_URL };

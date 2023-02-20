@@ -1,1 +1,1 @@
-export { default as useOAuthCallback } from 'hooks/useOAuthCallback';
+export { default as useOAuthChannel } from './useOAuthChannel';
