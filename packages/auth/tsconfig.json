@@ -4,6 +4,8 @@
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
     "baseUrl": "./src",
+    "composite": true,
+    "declaration": true
   },
   "include": ["src/**/*"]
 }

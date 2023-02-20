@@ -1,6 +1,13 @@
-enum OAUTH_PROVIDER {
-  GOOGLE = 'google',
-  KAKAO = 'kakao',
+interface IReqParamsOAuthToken {
+  provider: string;
+  redirect_url: string;
+  referrer: string;
+  authorizationCode: string;
 }
 
-export { OAUTH_PROVIDER };
+interface IResOAuthToken {
+  accessToken: string;
+  refreshToken: string;
+}
+
+export type { IReqParamsOAuthToken, IResOAuthToken };

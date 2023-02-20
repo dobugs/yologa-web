@@ -1,1 +1,1 @@
-export * from './keys';
+export * as UserQuery from './user';

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const setVh = () => {
   const vh = window.innerHeight * 0.01;

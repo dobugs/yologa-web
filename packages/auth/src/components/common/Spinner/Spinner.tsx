@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from 'react';
-import { wrap } from 'components/Spinner/style';
+import { wrap } from 'components/common/Spinner/style';
 
 interface Props extends HTMLAttributes<SVGElement> {
   width?: number;

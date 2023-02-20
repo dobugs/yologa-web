@@ -1,5 +1,5 @@
 import { CSSObject } from '@emotion/react';
-import { OAUTH_PROVIDER } from 'data/oauth';
+import { PROVIDER } from 'data/oauth';
 
 const hero: CSSObject = {
   marginTop: '16rem',
@@ -30,7 +30,7 @@ const actions: CSSObject = {
   width: '100%',
 };
 
-const actionButton = (type: OAUTH_PROVIDER): CSSObject => ({
+const actionButton = (type: (typeof PROVIDER)[keyof typeof PROVIDER]): CSSObject => ({
   boxShadow: '0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168)',
   borderRadius: 18,
   backgroundColor: type === 'kakao' ? '#FEE500' : '#fff',

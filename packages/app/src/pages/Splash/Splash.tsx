@@ -17,11 +17,9 @@ function Splash() {
 
   useEffect(() => {
     setTimeout(() => {
-      navigate(PATH.MY_PAGE);
+      navigate(PATH.LOGIN);
     }, 1500);
   });
-
-  console.log(location.href);
 
   return (
     <div css={wrap}>

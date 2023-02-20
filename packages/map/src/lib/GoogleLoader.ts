@@ -1,18 +1,18 @@
 import { IScriptLoader } from 'types';
-import { Loader as _mapLoader } from '@googlemaps/js-api-loader';
+import { Loader as ApiLoader } from '@googlemaps/js-api-loader';
 
 class GoogleMapLoader implements IScriptLoader {
   apiKey: string;
 
   options: IScriptLoader['options'];
 
-  private loader: _mapLoader;
+  private loader: ApiLoader;
 
   constructor(apiKey: string, options: IScriptLoader['options']) {
     this.apiKey = apiKey;
     this.options = options;
 
-    this.loader = new _mapLoader({
+    this.loader = new ApiLoader({
       apiKey: this.apiKey,
       ...options,
     });

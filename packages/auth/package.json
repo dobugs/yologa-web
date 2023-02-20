@@ -27,8 +27,7 @@
     ]
   },
   "peerDependencies": {
-    "@babel/core": "*",
-    "@craco/craco": "^5.0.0"
+    "@babel/core": "*"
   },
   "dependencies": {
     "@common/utils": "workspace:*"
@@ -38,6 +37,7 @@
     "@dealmore/craco-plugin-babel-include": "^1.0.0",
     "@emotion/babel-preset-css-prop": "^11.10.0",
     "@emotion/react": "^11.10.5",
+    "@tanstack/react-query": "*",
     "@testing-library/dom": "^8.19.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
