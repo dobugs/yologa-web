@@ -6,11 +6,16 @@ const header: CSSObject = {
   left: 0,
   zIndex: 1000,
   width: '100%',
-  display: 'flex',
-  alignItems: 'center',
-  height: '7.2rem',
-  borderBottom: '1px solid #DBDBDB',
   background: '#fff',
+  boxShadow: 'rgba(0, 0, 0, 0.1) 0 4px 4px -4px',
+};
+
+const wrap: CSSObject = {
+  display: 'flex',
+  alignItems: 'stretch',
+  height: '4.8rem',
+  maxWidth: 640,
+  margin: 'auto',
 
   '& > .left': {
     flex: '0 0 4.8rem',
@@ -18,7 +23,8 @@ const header: CSSObject = {
 
     '& > .back': {
       width: '100%',
-      height: '7.2rem',
+      height: '100%',
+      objectFit: 'contain',
       padding: '0.8rem',
     },
   },
@@ -31,7 +37,7 @@ const header: CSSObject = {
 
     '& img': {
       maxWidth: 240,
-      height: 'calc(7.2rem - 1px)',
+      height: 'calc(4.8rem - 1px)',
     },
   },
 
@@ -40,4 +46,4 @@ const header: CSSObject = {
   },
 };
 
-export { header };
+export { header, wrap };

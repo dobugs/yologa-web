@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import logo from 'assets/svg/logo.svg';
-import { header } from './style';
+import { header, wrap } from './style';
 import { IoIosArrowBack } from 'react-icons/io';
 import { IHeaderState } from 'types/ui';
 
@@ -16,8 +16,8 @@ function Header({ type, isShow }: Props) {
   }
 
   return (
-    <>
-      <header css={header}>
+    <header css={header}>
+      <div css={wrap}>
         <div className="left">
           {type === 'back' && (
             <button type="button" className="back" onClick={() => navigate(-1)}>
@@ -26,11 +26,11 @@ function Header({ type, isShow }: Props) {
           )}
         </div>
         <div className="logo">
-          <img src={logo} alt={'back'} />
+          <img src={logo} alt={'logo'} />
         </div>
         <div className="right"></div>
-      </header>
-    </>
+      </div>
+    </header>
   );
 }
 

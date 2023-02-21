@@ -7,34 +7,26 @@ const nav: CSSObject = {
   zIndex: 1000,
   width: '100%',
   background: '#fff',
-  borderTop: '1px solid #DBDBDB',
+  boxShadow: 'rgba(0, 0, 0, 0.1) 0 -4px 4px -4px',
 };
 
 const wrap: CSSObject = {
-  margin: 'auto',
-  maxWidth: 480,
-  padding: '8px 24px',
-  height: 64,
-};
-
-const list: CSSObject = {
   display: 'flex',
-  height: '100%',
   alignItems: 'center',
+  margin: 'auto',
+  maxWidth: 640,
+  height: 48,
   gap: 8,
-
-  '& > li': {
-    flex: 1,
-  },
 };
 
 const button: CSSObject = {
   width: '100%',
+  height: '100%',
 
   '& img': {
-    width: 36,
-    height: 36,
+    width: 24,
+    height: 24,
   },
 };
 
-export { nav, wrap, list, button };
+export { nav, wrap, button };

@@ -18,6 +18,7 @@ const global = css`
   body {
     font-family: 'NotoSansKR';
     font-size: 1.6rem;
+    background-color: #f2f2f2;
   }
 
   * {

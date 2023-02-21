@@ -62,7 +62,7 @@
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.6.2",
     "react-scripts": "5.0.1",
-    "react-toastify": "*",
+    "react-toastify": "^9.1.1",
     "recoil": "^0.7.6",
     "recoil-persist": "^4.2.0",
     "shelljs": "^0.8.5",

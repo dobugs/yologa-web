@@ -1,4 +1,3 @@
-import { PATH, PATH_KEY } from 'data/pages';
 import React from 'react';
 
 interface IModalState {
@@ -14,11 +13,11 @@ interface IHeaderState {
 }
 
 /** Nav */
-type NavType = (typeof PATH)[PATH_KEY.MY_PAGE];
+type NavItemKeyType = 'my-page' | 'running-crews' | 'chat';
 
 interface INavState {
   isShow: boolean;
-  activeNav: NavType;
+  activeNav: NavItemKeyType;
 }
 
 interface INavIconVariant {
@@ -26,4 +25,4 @@ interface INavIconVariant {
   activated: string;
 }
 
-export type { IModalState, IHeaderState, NavType, INavState, INavIconVariant };
+export type { IModalState, IHeaderState, NavItemKeyType, INavState, INavIconVariant };

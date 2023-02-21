@@ -7,8 +7,8 @@ import { theme, global } from 'styles';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import GoogleMapProvider from 'components/providers/GoogleMapProvider';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+import { AuthProvider, GoogleMapProvider, ToastProvider } from 'components/providers';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
@@ -27,9 +27,13 @@ root.render(
     <ThemeProvider theme={theme}>
       <QueryClientProvider client={queryClient}>
         <RecoilRoot>
-          <GoogleMapProvider>
-            <App />
-          </GoogleMapProvider>
+          <AuthProvider>
+            <GoogleMapProvider>
+              <ToastProvider>
+                <App />
+              </ToastProvider>
+            </GoogleMapProvider>
+          </AuthProvider>
         </RecoilRoot>
       </QueryClientProvider>
     </ThemeProvider>

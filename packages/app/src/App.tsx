@@ -10,30 +10,48 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<LayoutComponent.Base />}>
+            <Route index path={PATH.ROOT} element={<SplashPages.Splash />} />
+
             <Route element={<LayoutComponent.UnAuthorize />}>
               <Route element={<LayoutComponent.Main />}>
-                <Route index path={PATH.ROOT} element={<SplashPages.Splash />} />
-                <Route path={PATH.LOGIN} element={<LoginPages.Login />} />
+                <Route element={<LayoutComponent.Layout headerVisible={false} navVisible={false} />}>
+                  <Route path={PATH.LOGIN} element={<LoginPages.Login />} />
+                </Route>
               </Route>
             </Route>
 
             <Route element={<LayoutComponent.Authorize />}>
               <Route element={<LayoutComponent.Main />}>
-                <Route path={PATH.MY_PAGE} element={<MyPagePages.MyPage />} />
-                <Route path={PATH.PROFILE} element={<MyPagePages.Profile />} />
-                <Route path={PATH.NOTIFICATION} element={<MyPagePages.Notification />} />
-                <Route path={PATH.NOTIFICATION_DETAIL} element={<MyPagePages.NotificationDetail />} />
-                <Route path={PATH.GUIDE} element={<MyPagePages.Guide />} />
-                <Route path={PATH.SETTINGS} element={<MyPagePages.Settings />} />
+                <Route element={<LayoutComponent.Layout activeNav={'my-page'} />}>
+                  <Route path={PATH.MY_PAGE} element={<MyPagePages.MyPage />} />
+                </Route>
 
-                <Route path={PATH.RUNNING_CREW} element={<RunningCrewPages.RunningCrew />} />
-                <Route path={PATH.RUNNING_CREW_CREATE} element={<RunningCrewPages.RunningCrewCreate />} />
-                <Route path={PATH.RUNNING_CREW_DETAIL} element={<RunningCrewPages.RunningCrewDetail />} />
-                <Route path={PATH.RUNNING_CREW_DETAIL_EDIT} element={<RunningCrewPages.RunningCrewDetailEdit />} />
-                <Route path={PATH.RUNNING_CREW_DETAIL_CHAT} element={<RunningCrewPages.RunningCrewDetailChat />} />
+                <Route element={<LayoutComponent.Layout headerType={'back'} navVisible={false} />}>
+                  <Route path={PATH.PROFILE} element={<MyPagePages.Profile />} />
+                  <Route path={PATH.NOTIFICATION} element={<MyPagePages.Notification />} />
+                  <Route path={PATH.NOTIFICATION_DETAIL} element={<MyPagePages.NotificationDetail />} />
+                  <Route path={PATH.GUIDE} element={<MyPagePages.Guide />} />
+                  <Route path={PATH.SETTINGS} element={<MyPagePages.Settings />} />
+                </Route>
 
-                <Route path={PATH.CHAT} element={<ChatPages.Chat />} />
-                <Route path={PATH.CHAT_DETAIL} element={<ChatPages.ChatDetail />} />
+                <Route element={<LayoutComponent.Layout activeNav={'running-crews'} />}>
+                  <Route path={PATH.RUNNING_CREW} element={<RunningCrewPages.RunningCrew />} />
+                </Route>
+
+                <Route element={<LayoutComponent.Layout headerType={'back'} navVisible={false} />}>
+                  <Route path={PATH.RUNNING_CREW_CREATE} element={<RunningCrewPages.RunningCrewCreate />} />
+                  <Route path={PATH.RUNNING_CREW_DETAIL} element={<RunningCrewPages.RunningCrewDetail />} />
+                  <Route path={PATH.RUNNING_CREW_DETAIL_EDIT} element={<RunningCrewPages.RunningCrewDetailEdit />} />
+                  <Route path={PATH.RUNNING_CREW_DETAIL_CHAT} element={<RunningCrewPages.RunningCrewDetailChat />} />
+                </Route>
+
+                <Route element={<LayoutComponent.Layout activeNav={'chat'} />}>
+                  <Route path={PATH.CHAT} element={<ChatPages.Chat />} />
+                </Route>
+
+                <Route element={<LayoutComponent.Layout headerType={'back'} navVisible={false} />}>
+                  <Route path={PATH.CHAT_DETAIL} element={<ChatPages.ChatDetail />} />
+                </Route>
               </Route>
 
               {/* 404 */}

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { PROVIDER, REDIRECT_URL } from 'data/oauth';
 import { UserQuery } from 'queries';
 import qs from 'query-string';
+import { IAuth } from 'types/auth';
 
 type ProviderType = (typeof PROVIDER)[keyof typeof PROVIDER];
 
@@ -36,6 +37,10 @@ function useLogin() {
     }
   };
 
+  const getStorageToken = (): IAuth | null => {
+    return localStorage.getItem('@yologa/auth') as IAuth | null;
+  };
+
   return {
     data,
     login,
@@ -45,6 +50,7 @@ function useLogin() {
     getOAuthOptions,
     openLoginLink,
     isAuth,
+    getStorageToken,
   };
 }
 

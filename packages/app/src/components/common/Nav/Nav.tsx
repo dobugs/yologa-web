@@ -1,6 +1,6 @@
 import React from 'react';
-import { NavType } from 'types/ui';
-import { button, list, nav, wrap } from './style';
+import { NavItemKeyType } from 'types/ui';
+import { button, nav, wrap } from './style';
 import { useSetRecoilState } from 'recoil';
 
 import { ITEMS } from 'data/nav';
@@ -9,7 +9,7 @@ import { UIStore } from 'stores';
 
 interface Props {
   isShow: boolean;
-  activated: NavType;
+  activated: NavItemKeyType;
 }
 
 function Nav({ isShow, activated }: Props) {
@@ -20,7 +20,7 @@ function Nav({ isShow, activated }: Props) {
     return null;
   }
 
-  const handleClick = (path: string) => {
+  const handleClick = (path: NavItemKeyType) => {
     setFooterState(state => ({ ...state, activeNav: path }));
     navigate(path);
   };
@@ -28,15 +28,11 @@ function Nav({ isShow, activated }: Props) {
   return (
     <nav css={nav}>
       <div css={wrap}>
-        <ul css={list}>
-          {ITEMS.map(o => (
-            <li key={o.path}>
-              <button type="button" onClick={() => handleClick(o.path)} css={button}>
-                <img src={o.path === activated ? o.icon.activated : o.icon.default} alt={o.path} />
-              </button>
-            </li>
-          ))}
-        </ul>
+        {ITEMS.map(o => (
+          <button key={o.path} type="button" onClick={() => handleClick(o.path)} css={button}>
+            <img src={o.path === activated ? o.icon.activated : o.icon.default} alt={o.path} />
+          </button>
+        ))}
       </div>
     </nav>
   );

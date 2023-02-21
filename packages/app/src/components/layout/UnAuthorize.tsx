@@ -8,7 +8,7 @@ function UnAuthorize() {
   const auth = useRecoilValue(authState);
 
   if (auth) {
-    return <Navigate to={`${PATH.ROOT}`} />;
+    return <Navigate to={`/${PATH.RUNNING_CREW}`} />;
   }
 
   return <Outlet />;

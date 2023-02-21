@@ -8,16 +8,6 @@ interface Props {
   wrapper: MutableRefObject<HTMLDivElement | null>;
 }
 
-const handleMessage = (e: MessageEvent) => {
-  if (e.origin !== process.env.REACT_APP_DOBUGS_AUTH_WEB) return;
-
-  const { type, data } = e.data;
-
-  if (type === 'token') {
-    window.localStorage.setItem('@yologa/auth', JSON.stringify(data));
-  }
-};
-
 function useAuthFrame({ provider, wrapper }: Props) {
   const [isFrameLoaded, setIsFrameLoaded] = useState(false);
   const frameRef = useRef<HTMLIFrameElement | null>(null);
@@ -48,14 +38,6 @@ function useAuthFrame({ provider, wrapper }: Props) {
       new URL(process.env.REACT_APP_DOBUGS_AUTH_WEB!).origin,
     );
   };
-
-  useEffect(() => {
-    window.addEventListener('message', handleMessage);
-
-    return () => {
-      window.removeEventListener('message', handleMessage);
-    };
-  }, []);
 
   return {
     setInfo,

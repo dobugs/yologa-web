@@ -6,9 +6,10 @@ const PATH = '/api/v1';
 
 /**
  * OAuth2.0 로그인 URL 요청
- * [API 문서]{@link http://54.180.137.18:8080/docs/auth.html#_oauth2_0_%EB%A1%9C%EA%B7%B8%EC%9D%B8_url_%EC%9A%94%EC%B2%AD}
+ * [API 문서]{@link https://api.dev.dobugs.co.kr/docs/auth.html#_oauth2_0_%EB%A1%9C%EA%B7%B8%EC%9D%B8_url_%EC%9A%94%EC%B2%AD}
  * @param provider
  * @param redirect_url
+ * @param referrer
  */
 const login = ({ provider, redirect_url, referrer }: IReqOAuth) => {
   const query = qs.stringify({

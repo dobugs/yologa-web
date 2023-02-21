@@ -1,4 +1,4 @@
-import { INavIconVariant, NavType } from 'types/ui';
+import { INavIconVariant, NavItemKeyType } from 'types/ui';
 
 import IcProfile from 'assets/svg/ic-profile.svg';
 import IcProfileFilled from 'assets/svg/ic-profile-filled.svg';
@@ -6,29 +6,28 @@ import IcRunning from 'assets/svg/ic-running.svg';
 import IcRunningFilled from 'assets/svg/ic-running-filled.svg';
 import IcChat from 'assets/svg/ic-chat.svg';
 import IcChatFilled from 'assets/svg/ic-chat-filled.svg';
-import { PATH } from './pages';
 
-const ITEMS: { icon: INavIconVariant; path: NavType }[] = [
+const ITEMS: { icon: INavIconVariant; path: NavItemKeyType }[] = [
   {
     icon: {
       default: IcProfile,
       activated: IcProfileFilled,
     },
-    path: PATH.MY_PAGE,
+    path: 'my-page',
   },
   {
     icon: {
       default: IcRunning,
       activated: IcRunningFilled,
     },
-    path: PATH.RUNNING_CREW,
+    path: 'running-crews',
   },
   {
     icon: {
       default: IcChat,
       activated: IcChatFilled,
     },
-    path: PATH.CHAT,
+    path: 'chat',
   },
 ];
 

@@ -24,7 +24,7 @@ function Callback() {
   }, [data]);
 
   useEffect(() => {
-    if (data) {
+    if (data && isIframeLoaded) {
       sendToken(data);
       setTimeout(redirect, 100);
     }
