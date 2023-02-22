@@ -2,7 +2,7 @@ import { LayoutComponent } from 'components';
 import { PATH } from 'data/pages';
 import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import { SplashPages, MyPagePages, ChatPages, LoginPages, RunningCrewPages } from './pages';
+import { SplashPages, MyPagePages, ChatPages, LoginPages, RunningCrewPages, OAuth } from './pages';
 
 function App() {
   return (
@@ -10,12 +10,16 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<LayoutComponent.Base />}>
-            <Route index path={PATH.ROOT} element={<SplashPages.Splash />} />
+            <Route element={<LayoutComponent.Layout headerVisible={false} navVisible={false} />}>
+              <Route index path={PATH.ROOT} element={<SplashPages.Splash />} />
 
-            <Route element={<LayoutComponent.UnAuthorize />}>
-              <Route element={<LayoutComponent.Main />}>
-                <Route element={<LayoutComponent.Layout headerVisible={false} navVisible={false} />}>
+              <Route element={<LayoutComponent.UnAuthorize />}>
+                <Route element={<LayoutComponent.Main />}>
                   <Route path={PATH.LOGIN} element={<LoginPages.Login />} />
+                  <Route path={PATH.OAUTH}>
+                    <Route path={'google'} element={<OAuth />} />
+                    <Route path={'kakao'} element={<OAuth />} />
+                  </Route>
                 </Route>
               </Route>
             </Route>

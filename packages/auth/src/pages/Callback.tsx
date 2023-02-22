@@ -4,29 +4,38 @@ import Spinner from 'components/common/Spinner';
 import { useSearchParams } from 'react-router-dom';
 import { AuthQuery } from 'queries';
 import { useOAuthChannel } from 'hooks';
-import { getOptions } from 'hooks/useOAuthChannel';
+import { getParams } from 'hooks/useOAuthChannel';
 
 function Callback() {
-  const iframeWrapper = useRef<HTMLIFrameElement | null>(null);
+  const frameRef = useRef<HTMLIFrameElement | null>(null);
   const [sp] = useSearchParams();
-
-  const { redirect, isIframeLoaded, loadIframe, sendToken } = useOAuthChannel({ wrapper: iframeWrapper });
+  const { provider, referrer, redirect_url } = getParams() ?? {
+    provider: '',
+    referrer: '',
+    redirect_url: '',
+  };
 
   const { data, status } = AuthQuery.useGetOAuthToken({
-    ...getOptions(),
+    provider,
+    referrer,
+    redirect_url,
     authorizationCode: sp.get('code') ?? '',
+  });
+
+  const { isIframeLoaded, loadIframe, transfer } = useOAuthChannel({
+    frameRef,
+    token: data,
   });
 
   useEffect(() => {
     if (data) {
-      loadIframe(window.sessionStorage.getItem('referrer') ?? '');
+      loadIframe();
     }
   }, [data]);
 
   useEffect(() => {
-    if (data && isIframeLoaded) {
-      sendToken(data);
-      setTimeout(redirect, 100);
+    if (isIframeLoaded) {
+      transfer();
     }
   }, [isIframeLoaded]);
 
@@ -47,7 +56,10 @@ function Callback() {
         <Spinner />
       </div>
 
-      <div ref={iframeWrapper} />
+      <iframe
+        sandbox="allow-modalsallow-storage-access-by-user-activation allow-scripts allow-same-origin"
+        ref={frameRef}
+      />
     </>
   );
 }

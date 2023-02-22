@@ -1,22 +1,23 @@
-import { MutableRefObject, useEffect, useRef, useState } from 'react';
+import { MutableRefObject, useEffect, useState } from 'react';
 import { REDIRECT_URL } from 'data/oauth';
 import { IReqOAuth, ProviderType } from 'types/auth';
-import { createIframe } from '@common/utils';
+import { hydrateIframe } from '@common/utils';
 
 interface Props {
   provider: ProviderType | null;
-  wrapper: MutableRefObject<HTMLDivElement | null>;
+  frameRef: MutableRefObject<HTMLIFrameElement | null>;
 }
 
-function useAuthFrame({ provider, wrapper }: Props) {
+function useAuthFrame({ provider, frameRef }: Props) {
   const [isFrameLoaded, setIsFrameLoaded] = useState(false);
-  const frameRef = useRef<HTMLIFrameElement | null>(null);
 
   useEffect(() => {
-    if (provider) {
-      frameRef.current = createIframe({ wrapper: wrapper.current as HTMLDivElement, url: REDIRECT_URL[provider]! });
+    if (provider && frameRef.current) {
+      frameRef.current = hydrateIframe({ iframe: frameRef.current, url: REDIRECT_URL[provider]! });
       frameRef.current.addEventListener('load', _ => {
-        setIsFrameLoaded(true);
+        setTimeout(() => {
+          setIsFrameLoaded(true);
+        }, 100);
       });
     }
   }, [provider]);
@@ -26,11 +27,10 @@ function useAuthFrame({ provider, wrapper }: Props) {
     frameRef.current = null;
   };
 
-  const setInfo = (params: IReqOAuth) => {
-    const frameWindow = frameRef.current?.contentWindow;
-    if (!frameWindow) return;
+  const sendOAuthReqParams = (params: IReqOAuth) => {
+    if (!isFrameLoaded) throw Error('iframe이 로드되지 않았습니다.');
 
-    frameWindow.postMessage(
+    frameRef.current?.contentWindow?.postMessage(
       {
         type: 'deploy',
         data: params,
@@ -40,7 +40,7 @@ function useAuthFrame({ provider, wrapper }: Props) {
   };
 
   return {
-    setInfo,
+    sendOAuthReqParams,
     isFrameLoaded,
     remove,
   };

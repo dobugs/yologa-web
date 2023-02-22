@@ -1,29 +1,24 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { PROVIDER, REDIRECT_URL } from 'data/oauth';
-import { UserQuery } from 'queries';
+import { AuthQuery } from 'queries';
 import qs from 'query-string';
-import { IAuth } from 'types/auth';
 
 type ProviderType = (typeof PROVIDER)[keyof typeof PROVIDER];
 
-function useLogin() {
-  const [isAuth] = useState(!!window.localStorage.getItem('@yologa/auth'));
+const getOAuthOptions = (provider: ProviderType | null) => ({
+  provider: provider ?? '',
+  redirect_url: REDIRECT_URL[provider as ProviderType] ?? '',
+  referrer: `${window.location.href}?${qs.stringify({ provider })}`,
+});
 
+function useLogin() {
   const [provider, setProvider] = useState<ProviderType | null>(null);
 
-  const getOAuthOptions = useCallback(() => {
-    return {
-      provider: provider ?? '',
-      redirect_url: REDIRECT_URL[provider as ProviderType] ?? '',
-      referrer: `${window.location.href}?${qs.stringify({ provider })}`,
-    };
-  }, [provider]);
+  const { data, refetch, status, isFetching, error } = AuthQuery.useGetOauthLink(getOAuthOptions(provider));
 
-  const { data, refetch, status, isFetching } = UserQuery.useGetOauthLink(getOAuthOptions());
-
-  const login = useCallback((provider: ProviderType) => {
-    setProvider(provider);
-  }, []);
+  const login = (pv: ProviderType) => {
+    setProvider(pv);
+  };
 
   useEffect(() => {
     if (provider) {
@@ -31,15 +26,12 @@ function useLogin() {
     }
   }, [provider]);
 
-  const openLoginLink = () => {
+  useEffect(() => {
     if (data?.data.oauthLoginLink) {
       window.location.href = data!.data.oauthLoginLink;
+      window.sessionStorage.setItem('@yologa/oauth-params', JSON.stringify(getOAuthOptions(provider)));
     }
-  };
-
-  const getStorageToken = (): IAuth | null => {
-    return localStorage.getItem('@yologa/auth') as IAuth | null;
-  };
+  }, [data]);
 
   return {
     data,
@@ -48,9 +40,7 @@ function useLogin() {
     isFetching,
     provider,
     getOAuthOptions,
-    openLoginLink,
-    isAuth,
-    getStorageToken,
+    error,
   };
 }
 

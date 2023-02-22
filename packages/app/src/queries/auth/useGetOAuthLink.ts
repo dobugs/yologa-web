@@ -7,6 +7,7 @@ import { IReqOAuth } from 'types/auth';
 function useGetOAuthLink(params: IReqOAuth) {
   return useQuery(getQueryKeys(KEY).details(), () => AuthAPI.login(params), {
     enabled: false,
+    staleTime: 0,
   });
 }
 

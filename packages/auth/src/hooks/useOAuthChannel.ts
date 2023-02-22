@@ -1,71 +1,84 @@
-import { MutableRefObject, useEffect, useRef, useState } from 'react';
+import { MutableRefObject, useCallback, useState } from 'react';
 import { IReqParamsOAuthToken, IResOAuthToken } from 'types';
-import { createIframe } from '@common/utils/lib';
+import { hydrateIframe } from '@common/utils';
 
-const handleMessage = (e: MessageEvent) => {
-  const { type, data } = e.data;
+type ReqParamsType = Omit<IReqParamsOAuthToken, 'authorizationCode'>;
 
-  if (type === 'deploy') {
-    Object.entries(data).forEach(([key, value]) => {
-      window.sessionStorage.setItem(key, value as string);
-    });
+const getParams = (): ReqParamsType | null => {
+  const reqParamsRaw = window.localStorage.getItem('@dobugs/auth');
+  if (!reqParamsRaw) return null;
+
+  try {
+    const { referrer, redirect_url, provider } = JSON.parse(reqParamsRaw) || {
+      referrer: '',
+      redirect_url: '',
+      provider: '',
+    };
+
+    return {
+      referrer,
+      redirect_url,
+      provider,
+    };
+  } catch (e) {
+    return null;
   }
 };
 
-const getOptions = (): Omit<IReqParamsOAuthToken, 'authorizationCode'> => {
-  return {
-    referrer: window.sessionStorage.getItem('referrer') ?? '',
-    redirect_url: window.sessionStorage.getItem('redirect_url') ?? '',
-    provider: window.sessionStorage.getItem('provider') ?? '',
-  };
+const redirect = (href: string) => {
+  window.location.href = href;
+};
+
+const cleanup = () => {
+  window.localStorage.clear();
 };
 
 interface Props {
-  wrapper: MutableRefObject<HTMLDivElement | null>;
+  frameRef: MutableRefObject<HTMLIFrameElement | null>;
+  token?: IResOAuthToken;
 }
 
-function useOAuthChannel({ wrapper }: Props) {
-  const frameRef = useRef<HTMLIFrameElement | null>(null);
+function useOAuthChannel({ frameRef, token }: Props) {
   const [isIframeLoaded, setIsIframeLoaded] = useState(false);
 
-  useEffect(() => {
-    window.addEventListener('message', handleMessage);
+  const loadIframe = useCallback(() => {
+    if (!frameRef.current) return;
 
-    return () => {
-      window.removeEventListener('message', handleMessage);
-    };
-  }, []);
+    const { referrer } = getParams() as ReqParamsType;
 
-  const loadIframe = (url: string) => {
-    frameRef.current = createIframe({
-      wrapper: wrapper.current as HTMLDivElement,
-      url,
+    frameRef.current = hydrateIframe({
+      iframe: frameRef.current,
+      url: referrer,
     });
 
     frameRef.current?.addEventListener('load', _ => {
       setIsIframeLoaded(true);
     });
-  };
+  }, []);
 
-  const sendToken = (token: IResOAuthToken) => {
-    const frameWindow = frameRef.current?.contentWindow;
-    if (!frameWindow) return;
-
-    frameWindow.postMessage(
+  const sendToken = (token: IResOAuthToken, origin: string) => {
+    frameRef.current?.contentWindow?.postMessage(
       {
         type: 'token',
         data: { ...token },
       },
-      new URL(getOptions().referrer).href,
+      origin,
     );
   };
 
-  const redirect = () => {
-    window.location.href = new URL(getOptions().referrer).origin;
-  };
+  const transfer = useCallback(async () => {
+    if (!token) throw Error('유효한 토큰이 존재하지 않습니다');
 
-  return { redirect, loadIframe, isIframeLoaded, sendToken };
+    const params = getParams() as ReqParamsType;
+    const referrerURL = new URL(params.referrer);
+
+    sendToken(token, referrerURL.href);
+    cleanup();
+    setTimeout(() => redirect(referrerURL.href), 100);
+  }, [token]);
+
+  return { redirect, loadIframe, isIframeLoaded, transfer };
 }
 
-export { getOptions };
+export { getParams };
 export default useOAuthChannel;

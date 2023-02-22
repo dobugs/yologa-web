@@ -1,35 +1,22 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 
 import { LoginComponent, CommonComponent } from 'components';
 import { PROVIDER } from 'data/oauth';
 import * as LoginStyle from './style';
 import { useLogin } from 'components/login';
-import useAuthFrame from 'components/login/useAuthFrame';
 import useToastMessage from 'hooks/useToastMessage';
 
 type ProviderType = (typeof PROVIDER)[keyof typeof PROVIDER];
 
 function Login() {
-  const frameWrapperRef = useRef<HTMLDivElement | null>(null);
-
   const toast = useToastMessage();
-  const { login, status, isFetching, provider, getOAuthOptions, openLoginLink, isAuth, getStorageToken } = useLogin();
-
-  const { setInfo, isFrameLoaded } = useAuthFrame({
-    provider,
-    wrapper: frameWrapperRef,
-  });
+  const { login, status, isFetching } = useLogin();
 
   useEffect(() => {
-    if (status === 'success' && isFrameLoaded) {
-      setInfo(getOAuthOptions());
-      setTimeout(openLoginLink, 0);
-    }
-
     if (status === 'error') {
-      toast.error('로그인을 할 수 없습니다.');
+      toast.error('서버에 문제가 생겨 로그인할 수 없습니다. 관리자에게 문의해주세요');
     }
-  }, [status, isFrameLoaded]);
+  }, [status]);
 
   const handleClickGetOAuthLink = (provider: ProviderType) => {
     login(provider);
@@ -46,8 +33,6 @@ function Login() {
         onClickKakao={() => handleClickGetOAuthLink('kakao')}
       />
       <CommonComponent.Copyright />
-
-      <div ref={frameWrapperRef} />
     </div>
   );
 }

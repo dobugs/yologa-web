@@ -1,6 +1,6 @@
 import { userBase } from './';
 import qs from 'query-string';
-import { IReqOAuth, IResOAuthLink } from 'types/auth';
+import { IAuth, IReqOAuth, IReqParamsOAuthToken, IResOAuthLink } from 'types/auth';
 
 const PATH = '/api/v1';
 
@@ -22,4 +22,16 @@ const login = ({ provider, redirect_url, referrer }: IReqOAuth) => {
   return userBase.get<IResOAuthLink>(path);
 };
 
-export { login };
+const token = ({ provider, redirect_url, referrer, authorizationCode }: IReqParamsOAuthToken) => {
+  const query = qs.stringify({
+    provider,
+    redirect_url,
+    referrer,
+  });
+
+  const path = `${PATH}/oauth2/login?${query}`;
+
+  return userBase.post<IAuth>(path, { authorizationCode });
+};
+
+export { login, token };

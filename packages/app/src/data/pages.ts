@@ -1,6 +1,7 @@
 const PATH_KEY = {
   ROOT: 'ROOT',
   LOGIN: 'LOGIN',
+  OAUTH: 'OAUTH',
 
   /** 마이페이지 */
   MY_PAGE: 'MY_PAGE',
@@ -25,8 +26,8 @@ const PATH_KEY = {
 
 const PATH: Record<(typeof PATH_KEY)[keyof typeof PATH_KEY], string> = {
   [PATH_KEY.ROOT]: '',
-
   [PATH_KEY.LOGIN]: 'login',
+  [PATH_KEY.OAUTH]: 'oauth',
 
   /** 마이페이지 */
   [PATH_KEY.MY_PAGE]: 'my-page',

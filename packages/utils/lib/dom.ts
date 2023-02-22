@@ -1,12 +1,11 @@
-const createIframe = ({ wrapper, url }: { wrapper: HTMLDivElement; url: string }) => {
-  const iframe = document.createElement('iframe');
+const hydrateIframe = ({ iframe, url }: { iframe: HTMLIFrameElement; url: string }) => {
   iframe.src = url;
   iframe.style.width = '0px';
   iframe.style.height = '0px';
   iframe.style.zIndex = '-1';
   iframe.style.position = 'fixed';
-  wrapper.appendChild(iframe);
+
   return iframe;
 };
 
-export { createIframe };
+export { hydrateIframe };

@@ -8,7 +8,7 @@ import { PROVIDER } from 'data/oauth';
 function useGetOAuthToken(params: IReqParamsOAuthToken) {
   const { status, refetch, data } = useQuery(getQueryKeys(KEY).details(), () => AuthAPI.login(params), {
     staleTime: 0,
-    enabled: params.provider in PROVIDER,
+    enabled: params.provider in PROVIDER && !!params.authorizationCode,
   });
 
   return {

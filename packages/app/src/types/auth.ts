@@ -17,4 +17,8 @@ interface IResOAuthLink {
 
 type ProviderType = (typeof PROVIDER)[keyof typeof PROVIDER];
 
-export type { IAuth, IReqOAuth, IResOAuthLink, ProviderType };
+interface IReqParamsOAuthToken extends IReqOAuth {
+  authorizationCode: string;
+}
+
+export type { IAuth, IReqOAuth, IResOAuthLink, IReqParamsOAuthToken, ProviderType };

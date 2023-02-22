@@ -1,1 +1,1 @@
-export * as UserQuery from './user';
+export * as AuthQuery from './auth';

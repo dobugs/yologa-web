@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "start": "craco start",
+    "start:debug": "env-cmd -f .env.debug yarn start",
     "start:dev": "env-cmd -f .env.dev yarn start",
     "deploy:dev": "node scripts/deploy dev",
     "deploy:prod": "node scripts/deploy prod",
