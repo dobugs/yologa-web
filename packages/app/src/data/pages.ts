@@ -8,6 +8,7 @@ const PATH_KEY = {
   PROFILE: 'PROFILE',
   NOTIFICATION: 'NOTIFICATION',
   NOTIFICATION_DETAIL: 'NOTIFICATION_DETAIL',
+  HISTORY: 'HISTORY',
   GUIDE: 'GUIDE',
   SETTINGS: 'SETTINGS',
 
@@ -34,6 +35,7 @@ const PATH: Record<(typeof PATH_KEY)[keyof typeof PATH_KEY], string> = {
   [PATH_KEY.PROFILE]: 'my-page/profile',
   [PATH_KEY.NOTIFICATION]: 'my-page/notification',
   [PATH_KEY.NOTIFICATION_DETAIL]: 'my-page/notification/:id',
+  [PATH_KEY.HISTORY]: 'my-page/history',
   [PATH_KEY.GUIDE]: 'my-page/guide',
   [PATH_KEY.SETTINGS]: 'my-page/settings',
 

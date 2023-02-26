@@ -34,4 +34,14 @@ const token = ({ provider, redirect_url, referrer, authorizationCode }: IReqPara
   return userBase.post<IAuth>(path, { authorizationCode });
 };
 
-export { login, token };
+const refresh = (refreshToken: string) => {
+  const path = `${PATH}/oauth2/reissue`;
+
+  return userBase.post<IAuth>(path, null, {
+    headers: {
+      Authorization: `Bearer ${refreshToken}`,
+    },
+  });
+};
+
+export { login, token, refresh };

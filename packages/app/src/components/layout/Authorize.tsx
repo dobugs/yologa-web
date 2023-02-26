@@ -1,14 +1,14 @@
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import { authState } from 'stores/auth';
+import { isAuth } from 'stores/auth';
 
-import { useEffectOnce } from '@common/utils/hooks';
 import useToastMessage from 'hooks/useToastMessage';
+import { useEffectOnce } from '@common/utils';
 
 function Authorize() {
   const toast = useToastMessage();
-  const auth = useRecoilValue(authState);
+  const auth = useRecoilValue(isAuth);
 
   useEffectOnce(() => {
     toast.success('로그인되었습니다 :)');

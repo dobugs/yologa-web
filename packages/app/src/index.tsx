@@ -27,13 +27,13 @@ root.render(
     <ThemeProvider theme={theme}>
       <QueryClientProvider client={queryClient}>
         <RecoilRoot>
-          <AuthProvider>
-            <GoogleMapProvider>
-              <ToastProvider>
+          <GoogleMapProvider>
+            <ToastProvider>
+              <AuthProvider>
                 <App />
-              </ToastProvider>
-            </GoogleMapProvider>
-          </AuthProvider>
+              </AuthProvider>
+            </ToastProvider>
+          </GoogleMapProvider>
         </RecoilRoot>
       </QueryClientProvider>
     </ThemeProvider>

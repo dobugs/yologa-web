@@ -34,6 +34,7 @@ function App() {
                   <Route path={PATH.PROFILE} element={<MyPagePages.Profile />} />
                   <Route path={PATH.NOTIFICATION} element={<MyPagePages.Notification />} />
                   <Route path={PATH.NOTIFICATION_DETAIL} element={<MyPagePages.NotificationDetail />} />
+                  <Route path={PATH.HISTORY} element={<MyPagePages.History />} />
                   <Route path={PATH.GUIDE} element={<MyPagePages.Guide />} />
                   <Route path={PATH.SETTINGS} element={<MyPagePages.Settings />} />
                 </Route>

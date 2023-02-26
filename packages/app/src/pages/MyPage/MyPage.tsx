@@ -1,17 +1,13 @@
-import React, { useEffect } from 'react';
-import { useSetRecoilState } from 'recoil';
-import { UIStore } from 'stores';
+import { MyPageComponent } from 'components';
+import React from 'react';
 
 function MyPage() {
-  const setHeaderState = useSetRecoilState(UIStore.headerState);
-  const setNavState = useSetRecoilState(UIStore.navState);
-
-  useEffect(() => {
-    setHeaderState(state => ({ ...state, isShow: true }));
-    setNavState(state => ({ ...state, isShow: true }));
-  }, []);
-
-  return <>MyPage</>;
+  return (
+    <>
+      <MyPageComponent.Profile />
+      <MyPageComponent.Menus />
+    </>
+  );
 }
 
 export default MyPage;

@@ -18,6 +18,7 @@ function OAuth() {
 
   useEffect(() => {
     if (data) {
+      console.log(data);
       setAuth(data);
       navigate(PATH.ROOT);
     }

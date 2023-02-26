@@ -1,18 +1,40 @@
-import { atom, selector } from 'recoil';
+import { userBase, yologaBase } from 'api';
+import { atom, selector, DefaultValue } from 'recoil';
 import { IAuth } from 'types/auth';
 
-const _authState = atom<IAuth | null>({
-  key: '_auth',
-  default: null,
-});
+const setGlobalToken = (data: IAuth) => {
+  window.localStorage.setItem('@yologa/auth', JSON.stringify(data));
+  userBase.defaults.headers.common['authorization'] = `Bearer ${data.accessToken}`;
+  yologaBase.defaults.headers.common['authorization'] = `Bearer ${data.accessToken}`;
+};
 
-const authState = selector<IAuth | null>({
-  key: 'auth',
-  get: ({ get }) => get(_authState),
-  set: ({ set }, newValue) => {
-    window.localStorage.setItem('@yologa/auth', JSON.stringify(newValue));
-    return set(_authState, newValue);
+const _authState = atom<IAuth>({
+  key: '_auth',
+  default: {
+    accessToken: '',
+    refreshToken: '',
   },
 });
 
-export { authState };
+const authState = selector<IAuth>({
+  key: 'auth',
+  get: ({ get }) => get(_authState),
+  set: ({ set, reset }, newValue) => {
+    if (newValue instanceof DefaultValue) {
+      reset(authState);
+      return;
+    }
+
+    if (newValue) {
+      setGlobalToken(newValue);
+      set(_authState, newValue);
+    }
+  },
+});
+
+const isAuth = selector<boolean>({
+  key: 'isAuth',
+  get: ({ get }) => !!get(_authState).accessToken,
+});
+
+export { authState, isAuth };
