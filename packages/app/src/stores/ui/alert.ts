@@ -1,13 +1,9 @@
 import { atom } from 'recoil';
-import { IModalState } from 'types/ui';
+import { IAlertState } from 'types/ui';
 
-const alertState = atom<IModalState>({
+const alertState = atom<IAlertState[]>({
   key: 'alert',
-  default: {
-    loading: false,
-    isOpen: false,
-    content: '',
-  },
+  default: [],
 });
 
 export { alertState };

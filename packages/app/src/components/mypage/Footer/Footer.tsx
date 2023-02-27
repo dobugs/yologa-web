@@ -1,23 +1,21 @@
-import { MemberQuery } from 'queries';
-import defaultUserImage from 'assets/images/default-user.png';
+import { CommonComponent } from 'components';
+import { AuthQuery } from 'queries';
 import React from 'react';
+import { wrap, logoutArea } from './style';
 
-function Profile() {
-  const { data } = MemberQuery.useGetProfile();
+function Footer() {
+  const { mutate: logout } = AuthQuery.useLogout();
 
   return (
-    <div>
-      <div>
-        <figure>
-          <img src={data?.data?.profileUrl ?? defaultUserImage} />
-          <figcaption>{`${data?.data?.nickname} 님 안녕하세요!`}</figcaption>
-        </figure>
+    <div css={wrap}>
+      <div css={logoutArea}>
+        <button type="button" onClick={_ => logout()}>
+          로그아웃
+        </button>
       </div>
-      <div>
-        <p>{`${data?.data?.nickname} 님 안녕하세요!`}</p>
-      </div>
+      <CommonComponent.Copyright />
     </div>
   );
 }
 
-export default Profile;
+export default Footer;

@@ -14,9 +14,7 @@ function Main() {
       <CommonComponent.Header type={type} isShow={isHeaderShow} />
       <main css={main({ isHeaderShow, isNavShow })}>
         <section css={sectionWrapper({ isHeaderShow, isNavShow })}>
-          <div>
-            <Outlet />
-          </div>
+          <Outlet />
         </section>
       </main>
       <CommonComponent.Nav isShow={isNavShow} activated={activeNav} />

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import logo from 'assets/svg/logo.svg';
 import { header, wrap } from './style';
 import { IoIosArrowBack } from 'react-icons/io';
 import { IHeaderState } from 'types/ui';
@@ -25,9 +24,7 @@ function Header({ type, isShow }: Props) {
             </button>
           )}
         </div>
-        <div className="logo">
-          <img src={logo} alt={'logo'} />
-        </div>
+        <h1 className="logo">YOLOGA</h1>
         <div className="right"></div>
       </div>
     </header>

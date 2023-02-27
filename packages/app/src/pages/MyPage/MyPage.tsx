@@ -1,12 +1,18 @@
 import { MyPageComponent } from 'components';
-import React from 'react';
+import Fallback from 'components/common/Fallback';
+import React, { Suspense } from 'react';
+import { wrap } from './style';
 
 function MyPage() {
   return (
-    <>
-      <MyPageComponent.Profile />
+    <div css={wrap}>
+      <Suspense fallback={<Fallback />}>
+        <MyPageComponent.Profile />
+      </Suspense>
+
       <MyPageComponent.Menus />
-    </>
+      <MyPageComponent.Footer />
+    </div>
   );
 }
 

@@ -15,7 +15,7 @@ const logout = () => {
   userBase.defaults.headers.common['authorization'] = '';
   yologaBase.defaults.headers.common['authorization'] = '';
 
-  window.history.replaceState(null, '', '/');
+  window.location.href = '/';
 };
 
 const login = (data: IAuth) => {
@@ -50,7 +50,7 @@ const onError = async (err: AxiosError) => {
     try {
       const { data } = await AuthAPI.refresh(getRefreshToken());
 
-      config.headers.common?.set('Auhtorization', `Bearer ${data.accessToken}`);
+      config.headers.set('Authorization', `Bearer ${data.accessToken}`);
 
       return axios(config).then(_ => login(data));
     } catch (e) {

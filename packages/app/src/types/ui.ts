@@ -1,8 +1,11 @@
 import React from 'react';
 
 interface IModalState {
-  loading: boolean;
-  isOpen: boolean;
+  title: React.ReactNode;
+  content: React.ReactNode;
+}
+
+interface IAlertState {
   content: React.ReactNode;
 }
 
@@ -25,4 +28,4 @@ interface INavIconVariant {
   activated: string;
 }
 
-export type { IModalState, IHeaderState, NavItemKeyType, INavState, INavIconVariant };
+export type { IModalState, IAlertState, IHeaderState, NavItemKeyType, INavState, INavIconVariant };

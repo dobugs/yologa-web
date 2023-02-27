@@ -135,6 +135,18 @@ const reset = css`
   summary::-webkit-details-marker {
     display: none;
   }
+  a {
+    color: inherit;
+    text-decoration: none;
+    outline: none;
+  }
+  a:hover,
+  a:active,
+  a:visited {
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+  }
 `;
 
 export default reset;

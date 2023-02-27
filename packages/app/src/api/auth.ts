@@ -1,6 +1,7 @@
 import { userBase } from './';
 import qs from 'query-string';
 import { IAuth, IReqOAuth, IReqParamsOAuthToken, IResOAuthLink } from 'types/auth';
+import axios from 'axios';
 
 const PATH = '/api/v1';
 
@@ -34,14 +35,19 @@ const token = ({ provider, redirect_url, referrer, authorizationCode }: IReqPara
   return userBase.post<IAuth>(path, { authorizationCode });
 };
 
+const logout = () => {
+  const path = `${PATH}/oauth2/logout`;
+  return userBase.post<unknown>(path);
+};
+
 const refresh = (refreshToken: string) => {
   const path = `${PATH}/oauth2/reissue`;
 
-  return userBase.post<IAuth>(path, null, {
+  return axios.post<IAuth>(path, null, {
     headers: {
       Authorization: `Bearer ${refreshToken}`,
     },
   });
 };
 
-export { login, token, refresh };
+export { login, logout, token, refresh };

@@ -30,15 +30,10 @@ const wrap: CSSObject = {
   },
 
   '& > .logo': {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
     flex: 1,
-
-    '& img': {
-      maxWidth: 240,
-      height: 'calc(4.8rem - 1px)',
-    },
+    fontSize: 24,
+    lineHeight: '4.8rem',
+    textAlign: 'center',
   },
 
   '& > .right': {

@@ -1,7 +1,9 @@
 import { CSSObject } from '@emotion/react';
 
 const wrap: CSSObject = {
-  padding: 0,
+  display: 'flex',
+  flexDirection: 'column',
+  minHeight: 'inherit',
 };
 
 export { wrap };

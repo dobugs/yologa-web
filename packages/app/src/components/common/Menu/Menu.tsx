@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import * as MenuStyle from './style';
 
 interface Props {
   icon: ReactNode;
@@ -10,10 +11,10 @@ interface Props {
 
 function Menu({ icon, children, to }: Props) {
   return (
-    <div>
-      <Link to={to}>
-        <div>{icon}</div>
-        <div>{children}</div>
+    <div css={MenuStyle.wrap}>
+      <Link to={to} css={MenuStyle.link}>
+        <div css={MenuStyle.iconWrap}>{icon}</div>
+        <div css={MenuStyle.name}>{children}</div>
       </Link>
     </div>
   );

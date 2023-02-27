@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
 import reset from './reset';
-// import datePicker from './date-picker';
 
 const global = css`
   ${reset.styles}
@@ -16,7 +15,9 @@ const global = css`
   }
 
   body {
-    font-family: 'NotoSansKR';
+    font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+      'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji',
+      'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
     font-size: 1.6rem;
     background-color: #f2f2f2;
   }

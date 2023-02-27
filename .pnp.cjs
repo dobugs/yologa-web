@@ -94,6 +94,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:29.3.1"],\
             ["lodash", "npm:4.17.21"],\
             ["map", "npm:1.0.1"],\
+            ["pretendard", "npm:1.3.6"],\
             ["prettier", "npm:2.8.2"],\
             ["query-string", "npm:8.1.0"],\
             ["react", "npm:18.2.0"],\
@@ -6590,6 +6591,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["env-cmd", "npm:10.1.0"],\
             ["inquirer", "npm:9.1.4"],\
             ["lodash", "npm:4.17.21"],\
+            ["pretendard", "npm:1.3.6"],\
             ["query-string", "npm:8.1.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:18.2.0"],\
@@ -6638,6 +6640,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["env-cmd", "npm:10.1.0"],\
             ["inquirer", "npm:9.1.4"],\
             ["lodash", "npm:4.17.21"],\
+            ["pretendard", "npm:1.3.6"],\
             ["query-string", "npm:8.1.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:18.2.0"],\
@@ -16734,6 +16737,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["pretendard", [\
+        ["npm:1.3.6", {\
+          "packageLocation": "./.yarn/cache/pretendard-npm-1.3.6-3e46d9676f-5621dc4b62.zip/node_modules/pretendard/",\
+          "packageDependencies": [\
+            ["pretendard", "npm:1.3.6"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["prettier", [\
         ["npm:2.8.2", {\
           "packageLocation": "./.yarn/cache/prettier-npm-2.8.2-201e3d1dcf-740c56c212.zip/node_modules/prettier/",\
@@ -20653,6 +20665,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:29.3.1"],\
             ["lodash", "npm:4.17.21"],\
             ["map", "npm:1.0.1"],\
+            ["pretendard", "npm:1.3.6"],\
             ["prettier", "npm:2.8.2"],\
             ["query-string", "npm:8.1.0"],\
             ["react", "npm:18.2.0"],\
