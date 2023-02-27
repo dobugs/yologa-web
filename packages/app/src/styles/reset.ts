@@ -147,6 +147,10 @@ const reset = css`
     color: inherit;
     background-color: inherit;
   }
+  * {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-touch-callout: none;
+  }
 `;
 
 export default reset;

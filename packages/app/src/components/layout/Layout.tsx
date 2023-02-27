@@ -1,7 +1,7 @@
-import React, { Outlet } from 'react-router-dom';
+import { useEffect } from 'react';
+import React, { Outlet, useLocation } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { headerState, navState } from 'stores/ui';
-import { useEffectOnce } from '@common/utils/hooks';
 import { IHeaderState, INavState } from 'types/ui';
 
 interface Props {
@@ -12,13 +12,14 @@ interface Props {
 }
 
 function Layout({ headerVisible = true, headerType = 'default', navVisible = true, activeNav }: Props) {
+  const location = useLocation();
   const setHeaderState = useSetRecoilState(headerState);
   const setNavState = useSetRecoilState(navState);
 
-  useEffectOnce(() => {
+  useEffect(() => {
     setHeaderState(prev => ({ ...prev, isShow: headerVisible, type: headerType }));
     setNavState(prev => ({ ...prev, isShow: navVisible, ...(activeNav && { activeNav }) }));
-  });
+  }, [location.pathname]);
 
   return <Outlet />;
 }

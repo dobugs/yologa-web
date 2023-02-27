@@ -28,8 +28,8 @@ const messageWrap: CSSObject = {
   flex: 1,
 
   p: {
-    wordBreak: 'keep-all',
-    fontSize: 32,
+    wordBreak: 'break-all',
+    fontSize: '2.4rem',
     fontWeight: 'bold',
     lineHeight: 1.35,
   },
