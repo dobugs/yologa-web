@@ -28,7 +28,7 @@ function useLogin() {
 
   useEffect(() => {
     if (data?.data.oauthLoginLink) {
-      window.location.href = data!.data.oauthLoginLink;
+      window.location.href = data.data.oauthLoginLink;
       window.sessionStorage.setItem('@yologa/oauth-params', JSON.stringify(getOAuthOptions(provider)));
     }
   }, [data]);

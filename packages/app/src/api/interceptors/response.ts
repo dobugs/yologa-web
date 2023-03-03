@@ -6,10 +6,6 @@ interface IAxiosRetryRequestConfig extends AxiosRequestConfig {
   _yologaRetry?: boolean;
 }
 
-const ERROR_MESSAGE = {
-  TOKEN_EXPIRED: '토큰의 만료 시간이 지났습니다.',
-} as const;
-
 const logout = () => {
   window.localStorage.removeItem('@yologa/auth');
   userBase.defaults.headers.common['authorization'] = '';
@@ -40,23 +36,24 @@ const onSuccess = (res: AxiosResponse) => res;
 const onError = async (err: AxiosError) => {
   const config: IAxiosRetryRequestConfig = { ...(err.config as AxiosRequestConfig) };
 
-  if (
-    err.response?.status === 400 &&
-    (err.response as AxiosResponse).data.message === ERROR_MESSAGE.TOKEN_EXPIRED &&
-    !config._yologaRetry
-  ) {
+  if (err.response?.status === 401 && !config._yologaRetry) {
     config._yologaRetry = true;
 
     try {
       const { data } = await AuthAPI.refresh(getRefreshToken());
+      login(data);
 
       config.headers.set('Authorization', `Bearer ${data.accessToken}`);
 
-      return axios(config).then(_ => login(data));
+      return axios(config);
     } catch (e) {
       logout();
+
+      return Promise.reject(e);
     }
   }
+
+  return Promise.reject(err);
 };
 
 export { onSuccess, onError };

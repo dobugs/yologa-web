@@ -41,7 +41,7 @@ const logout = () => {
 };
 
 const refresh = (refreshToken: string) => {
-  const path = `${PATH}/oauth2/reissue`;
+  const path = `${process.env.REACT_APP_DOBUGS_USER_API_URL}${PATH}/oauth2/reissue`;
 
   return axios.post<IAuth>(path, null, {
     headers: {
