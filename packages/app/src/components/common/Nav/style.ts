@@ -1,4 +1,5 @@
-import { CSSObject } from '@emotion/react';
+import { CSSObject, Theme } from '@emotion/react';
+import { clickable } from 'styles/common';
 
 const nav: CSSObject = {
   position: 'fixed',
@@ -19,14 +20,15 @@ const wrap: CSSObject = {
   gap: 8,
 };
 
-const button: CSSObject = {
+const button = (theme: Theme): CSSObject => ({
   width: '100%',
   height: '100%',
+  ...clickable(theme),
 
   '& img': {
     width: 24,
     height: 24,
   },
-};
+});
 
 export { nav, wrap, button };
