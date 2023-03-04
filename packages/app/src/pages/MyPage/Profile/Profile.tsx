@@ -49,7 +49,7 @@ function Profile() {
       <div css={wrap}>
         <ProfileComponent.Image
           data={data as IProfile}
-          handleIamgeChange={handleImageChange}
+          handleImageChange={handleImageChange}
           onError={resultHandler.image.error}
         />
 

@@ -39,7 +39,7 @@ function App() {
                   <Route path={PATH.SETTINGS} element={<MyPagePages.Settings />} />
                 </Route>
 
-                <Route element={<LayoutComponent.Layout activeNav={'running-crews'} />}>
+                <Route element={<LayoutComponent.Layout activeNav={'running-crews'} headerVisible={false} />}>
                   <Route path={PATH.RUNNING_CREW} element={<RunningCrewPages.RunningCrew />} />
                 </Route>
 

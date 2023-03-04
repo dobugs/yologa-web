@@ -1,4 +1,5 @@
 import { CSSObject } from '@emotion/react';
+import DefaultProfileImage from 'assets/images/default-user.png';
 
 const wrap: CSSObject = {
   position: 'relative',
@@ -42,6 +43,16 @@ const box: CSSObject = {
       height: '100%',
       objectFit: 'cover',
       borderRadius: 'inherit',
+
+      '&:before': {
+        content: '""',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundImage: `url(${DefaultProfileImage}})`,
+      },
     },
   },
 };

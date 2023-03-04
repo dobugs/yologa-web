@@ -1,14 +1,18 @@
 import { useContext } from 'react';
 import { mapContext } from '../providers/MapProvider';
 
-function useMapProvider() {
-  const ctx = useContext(mapContext);
+interface IReturn {
+  api: unknown;
+  loaded: boolean;
+}
 
-  if (!ctx) {
-    throw Error('useMapProvider는 MapProvider 하위 컴포넌트에서만 사용할 수 있습니다.');
-  }
+function useMapProvider(): IReturn {
+  const api = useContext(mapContext);
 
-  return ctx;
+  return {
+    api,
+    loaded: !!api,
+  };
 }
 
 export default useMapProvider;

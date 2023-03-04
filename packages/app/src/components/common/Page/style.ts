@@ -1,6 +1,6 @@
 import { CSSObject } from '@emotion/react';
 
-const wrap: CSSObject = {
+const list: CSSObject = {
   paddingTop: '1.6rem',
 
   ' > h1': {
@@ -16,8 +16,12 @@ const wrap: CSSObject = {
 
   '> .page-wrap': {
     padding: '0 2.4rem',
-    margin: '4.8rem 0 8rem',
+    marginTop: '4.8rem',
   },
+};
+
+const wrap = (type: 'LIST' | 'DEFAULT') => {
+  return type === 'LIST' ? list : null;
 };
 
 export { wrap };
