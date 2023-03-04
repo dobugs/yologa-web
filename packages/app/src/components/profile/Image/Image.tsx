@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import DefaultUserImage from 'assets/images/default-user.png';
 import { IProfile } from 'types/member';
 import { wrap, box } from './style';
+import DefaultProfileImage from 'assets/images/default-user.png';
 
 interface Props {
   data: Pick<IProfile, 'profileUrl'>;
-  handleIamgeChange: (data: FormData) => void;
+  handleImageChange: (data: FormData) => void;
   onError: () => void;
 }
 
-function Image({ data, handleIamgeChange: onImageChange, onError }: Props) {
+function Image({ data, handleImageChange: onImageChange, onError }: Props) {
   const [local, setLocal] = useState<string | null>(null);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,8 +23,13 @@ function Image({ data, handleIamgeChange: onImageChange, onError }: Props) {
     setLocal(URL.createObjectURL(file));
 
     const formData = new FormData();
-    formData.append('name', 'profile');
-    formData.append('filename', `${file.name || `${+new Date()}.${file.type}`}`);
+    formData.append(
+      'profile',
+      new File([file], file.name, {
+        lastModified: file.lastModified,
+        type: file.type,
+      }),
+    );
 
     onImageChange(formData);
   };
@@ -34,7 +39,7 @@ function Image({ data, handleIamgeChange: onImageChange, onError }: Props) {
       <div css={box}>
         <input type="file" name="profile" accept="image/*" onChange={handleImageChange} />
         <figure>
-          <img src={local || data.profileUrl || DefaultUserImage} />
+          <img src={local || data.profileUrl} onError={event => (event.currentTarget.src = DefaultProfileImage)} />
         </figure>
       </div>
     </div>

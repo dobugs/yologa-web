@@ -15,9 +15,10 @@ const updateMe = (payload: Pick<IProfile, 'nickname' | 'phoneNumber'>) => {
 
 const updateImage = (payload: FormData) => {
   const path = `${PATH}/members/profile`;
+
   return userBase.post<unknown>(path, payload, {
     headers: {
-      'Content-Type': 'multiplart/form-data',
+      'Content-Type': 'multipart/form-data',
     },
   });
 };

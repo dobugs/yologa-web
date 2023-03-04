@@ -11,8 +11,8 @@ interface Props extends PropsWithChildren<ILoaderOptions> {
 
 const mapContext = createContext<unknown>(null);
 
-const PROVIDER_API: Record<MAP_PROVIDER, unknown> = {
-  GOOGLE: typeof window.google,
+const PROVIDER_API_GETTER: Record<MAP_PROVIDER, () => unknown> = {
+  GOOGLE: () => window.google,
 };
 
 function MapProvider({ provider, children, apiKey, libraries }: Props) {
@@ -28,7 +28,7 @@ function MapProvider({ provider, children, apiKey, libraries }: Props) {
 
   useEffect(() => {
     loader.current.load().then(() => {
-      setApi(PROVIDER_API[provider]);
+      setApi(PROVIDER_API_GETTER[provider]());
     });
   }, []);
 

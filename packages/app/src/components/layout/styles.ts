@@ -17,4 +17,4 @@ const main = ({ isHeaderShow, isNavShow }: { isHeaderShow: boolean; isNavShow: b
   backgroundColor: theme.color.base,
 });
 
-export { sectionWrapper, main };
+export { headerHeight, navHeight, sectionWrapper, main };

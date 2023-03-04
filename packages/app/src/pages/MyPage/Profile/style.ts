@@ -2,7 +2,7 @@ import { CSSObject, Theme } from '@emotion/react';
 
 const wrap: CSSObject = {
   padding: '2.4rem',
-  marginBottom: '8rem',
+  marginBottom: '5.6rem',
 };
 
 const hr = (theme: Theme) => ({

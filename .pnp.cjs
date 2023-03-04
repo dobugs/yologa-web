@@ -2958,7 +2958,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@emotion/react", "virtual:b0d497c8d6f923ca6d4b8a932da937bd5c27c0c283aed7e238007f1219569c7f516cc091c6d65535cfabb7620fae2eddce1ee0ed06ff5353cf8a91d7ca741ee2#npm:11.10.5"],\
             ["@googlemaps/js-api-loader", "npm:1.15.1"],\
             ["@types/babel__core", null],\
-            ["@types/google.maps", "npm:3.51.0"],\
+            ["@types/google.maps", "npm:3.52.1"],\
             ["@types/react", "npm:18.0.26"],\
             ["@types/react-dom", "npm:18.0.10"],\
             ["query-string", "npm:8.1.0"],\
@@ -2980,7 +2980,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@emotion/react", "virtual:f87a972e7ee54256c6d8f979d7f3914b32522893226eba595e4efe4ecc641a239c6d88e01eccc6f32db30829d6ac493bfc98cb406a9b0d6059ee4112c0843da9#npm:11.10.5"],\
             ["@googlemaps/js-api-loader", "npm:1.15.1"],\
             ["@types/babel__core", null],\
-            ["@types/google.maps", "npm:3.51.0"],\
+            ["@types/google.maps", "npm:3.52.1"],\
             ["@types/react", "npm:18.0.26"],\
             ["@types/react-dom", "npm:18.0.10"],\
             ["query-string", "npm:8.1.0"],\
@@ -3000,7 +3000,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@emotion/babel-preset-css-prop", "virtual:f87a972e7ee54256c6d8f979d7f3914b32522893226eba595e4efe4ecc641a239c6d88e01eccc6f32db30829d6ac493bfc98cb406a9b0d6059ee4112c0843da9#npm:11.10.0"],\
             ["@emotion/react", "virtual:f87a972e7ee54256c6d8f979d7f3914b32522893226eba595e4efe4ecc641a239c6d88e01eccc6f32db30829d6ac493bfc98cb406a9b0d6059ee4112c0843da9#npm:11.10.5"],\
             ["@googlemaps/js-api-loader", "npm:1.15.1"],\
-            ["@types/google.maps", "npm:3.51.0"],\
+            ["@types/google.maps", "npm:3.52.1"],\
             ["@types/react", "npm:18.0.26"],\
             ["@types/react-dom", "npm:18.0.10"],\
             ["query-string", "npm:8.1.0"],\
@@ -5450,6 +5450,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-google.maps-npm-3.51.0-4d95cc19ab-fb2dbf8238.zip/node_modules/@types/google.maps/",\
           "packageDependencies": [\
             ["@types/google.maps", "npm:3.51.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:3.52.1", {\
+          "packageLocation": "./.yarn/cache/@types-google.maps-npm-3.52.1-2dd3c4d5c1-6d7b76672f.zip/node_modules/@types/google.maps/",\
+          "packageDependencies": [\
+            ["@types/google.maps", "npm:3.52.1"]\
           ],\
           "linkType": "HARD"\
         }]\
