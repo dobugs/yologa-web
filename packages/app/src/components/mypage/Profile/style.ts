@@ -30,7 +30,6 @@ const messageWrap: CSSObject = {
   p: {
     wordBreak: 'break-all',
     fontSize: '2.4rem',
-    fontWeight: 'bold',
     lineHeight: 1.35,
   },
 };

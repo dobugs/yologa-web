@@ -1,11 +1,11 @@
 import { useRecoilState } from 'recoil';
 import { alertState } from 'stores/ui';
-import { IModalState } from 'types/ui';
+import { IAlertState } from 'types/ui';
 
-function useModal() {
+function useAlert() {
   const [alerts, setAlert] = useRecoilState(alertState);
 
-  const add = (data: IModalState) => setAlert(prev => [...prev, data]);
+  const add = (data: IAlertState) => setAlert(prev => [...prev, data]);
   const remove = () => setAlert(prev => prev.slice(0, -1));
 
   return {
@@ -15,4 +15,4 @@ function useModal() {
   };
 }
 
-export default useModal;
+export default useAlert;

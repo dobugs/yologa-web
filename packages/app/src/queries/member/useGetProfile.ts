@@ -11,7 +11,7 @@ function useGetProfile() {
   });
 
   return {
-    data,
+    data: data?.data,
     status,
     refetch,
   };

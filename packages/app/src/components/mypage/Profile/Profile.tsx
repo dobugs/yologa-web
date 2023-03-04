@@ -12,15 +12,15 @@ function Profile() {
     <div css={wrap}>
       <div css={imageWrap}>
         <figure>
-          <img src={data?.data?.profileUrl ?? defaultUserImage} />
-          <figcaption>{data?.data?.nickname}</figcaption>
+          <img src={data?.profileUrl ?? defaultUserImage} />
+          <figcaption>{data?.nickname}</figcaption>
         </figure>
       </div>
       <div css={messageWrap}>
         <p>
-          {data?.data?.nickname ? (
+          {data?.nickname ? (
             <>
-              {maskNickname(data.data.nickname)}
+              <b>{maskNickname(data.nickname)}</b> 님,
               <br /> 안녕하세요!
             </>
           ) : (

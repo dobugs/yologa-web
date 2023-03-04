@@ -8,4 +8,18 @@ const getMe = () => {
   return userBase.get<IProfile>(path);
 };
 
-export { getMe };
+const updateMe = (payload: Pick<IProfile, 'nickname' | 'phoneNumber'>) => {
+  const path = `${PATH}/members`;
+  return userBase.post<unknown>(path, payload);
+};
+
+const updateImage = (payload: FormData) => {
+  const path = `${PATH}/members/profile`;
+  return userBase.post<unknown>(path, payload, {
+    headers: {
+      'Content-Type': 'multiplart/form-data',
+    },
+  });
+};
+
+export { getMe, updateMe, updateImage };
