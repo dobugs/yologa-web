@@ -4,7 +4,7 @@ const common = (theme: Theme) => ({
   transition: 'opacity 0.1s ease-out',
   opacity: 1,
 
-  '&:active, &:hover': {
+  '&:active': {
     opacity: 0.8,
   },
 

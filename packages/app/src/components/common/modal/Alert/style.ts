@@ -30,7 +30,7 @@ const wrap = (theme: Theme): CSSObject => ({
     borderBottomLeftRadius: '12px',
     borderBottomRightRadius: '12px',
 
-    ':active, :hover': {
+    ':active': {
       backgroundColor: theme.color.base,
     },
   },

@@ -21,7 +21,7 @@ function TypeA(props: TypeAProps) {
       >
         <div
           css={css`
-            padding: 0 24px max(18px, env(safe-area-inset-bottom));
+            padding: 0 24px 18px;
             margin: 0 auto;
             max-width: 640px;
           `}
