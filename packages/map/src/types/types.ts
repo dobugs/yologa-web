@@ -1,5 +1,5 @@
 import { SetStateAction } from 'react';
-
+import { WithRequired } from '@common/utils';
 interface ILoaderOptions {
   apiKey: string;
 }
@@ -14,4 +14,6 @@ interface IScriptLoader extends ILoaderOptions {
   load: () => Promise<unknown>;
 }
 
-export type { IScriptLoader, ILoaderOptions, IMapContext };
+type MapOptionsType = WithRequired<google.maps.MapOptions, 'center' | 'zoom'>;
+
+export type { MapOptionsType, IScriptLoader, ILoaderOptions, IMapContext };

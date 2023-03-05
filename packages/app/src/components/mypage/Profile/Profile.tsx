@@ -1,7 +1,7 @@
 import { MemberQuery } from 'queries';
 import React from 'react';
 import { wrap, imageWrap, messageWrap } from './style';
-import DefaultProfileImage from 'assets/images/default-user.png';
+import { Thumbnail } from 'components/common';
 
 const maskNickname = (val: string) => (val.length > 10 ? val.slice(0, 7) + '.'.repeat(3) : val);
 
@@ -11,13 +11,7 @@ function Profile() {
   return (
     <div css={wrap}>
       <div css={imageWrap}>
-        <figure>
-          <img
-            src={data?.profileUrl ?? DefaultProfileImage}
-            onError={event => (event.currentTarget.src = DefaultProfileImage)}
-          />
-          <figcaption>{data?.nickname}</figcaption>
-        </figure>
+        <Thumbnail src={data?.profileUrl} width={100} height={100} />
       </div>
       <div css={messageWrap}>
         <p>

@@ -15,13 +15,18 @@ const list: CSSObject = {
   },
 
   '> .page-wrap': {
+    position: 'relative',
     padding: '0 2.4rem',
     marginTop: '4.8rem',
   },
 };
 
-const wrap = (type: 'LIST' | 'DEFAULT') => {
-  return type === 'LIST' ? list : null;
-};
+const wrap = (type: 'LIST' | 'DEFAULT'): CSSObject => ({
+  ...(type === 'LIST' && list),
+
+  ' >.page-wrap': {
+    position: 'relative',
+  },
+});
 
 export { wrap };

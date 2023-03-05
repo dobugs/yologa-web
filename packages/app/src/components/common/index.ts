@@ -4,7 +4,7 @@ export { default as Nav } from './Nav';
 export { default as Spinner } from './Spinner';
 export { default as Menu } from './Menu';
 export { default as FixedBottomCTA } from './FixedBottomCTA';
-
+export { default as Thumbnail } from './Thumbnail';
 export { default as Page } from './Page';
 
 export * from './modal';

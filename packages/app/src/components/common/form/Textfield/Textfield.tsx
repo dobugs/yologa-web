@@ -3,8 +3,8 @@ import { wrap } from './style';
 
 type Props = InputHTMLAttributes<HTMLInputElement>;
 
-function Input({ ...props }: Props) {
+function Textfield({ ...props }: Props) {
   return <input {...props} css={wrap} />;
 }
 
-export default Input;
+export default Textfield;

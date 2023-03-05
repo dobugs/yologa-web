@@ -4,7 +4,6 @@ const header: CSSObject = {
   position: 'fixed',
   top: 0,
   left: 0,
-  zIndex: 1000,
   width: '100%',
   background: '#fff',
   boxShadow: 'rgba(0, 0, 0, 0.1) 0 4px 4px -4px',

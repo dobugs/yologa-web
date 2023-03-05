@@ -18,7 +18,14 @@ function ProfileForm({ data, handleSubmit }: Props) {
     <Form id={FORM_ID} handleSubmit={handleSubmit}>
       <Fieldset>
         <Label>닉네임</Label>
-        <Textfield type="text" name="nickname" defaultValue={data.nickname} placeholder="닉네임을 입력해주세요" />
+        <Textfield
+          type="text"
+          name="nickname"
+          defaultValue={data.nickname}
+          placeholder="닉네임을 입력해주세요"
+          maxLength={12}
+          required
+        />
       </Fieldset>
 
       <Fieldset>
@@ -29,6 +36,14 @@ function ProfileForm({ data, handleSubmit }: Props) {
           name="phoneNumber"
           placeholder="휴대폰 번호를 입력해주세요"
           defaultValue={data.phoneNumber}
+          onKeyDown={e => Number.isNaN(e.key) && e.preventDefault()}
+          maxLength={13}
+          onChange={e =>
+            (e.currentTarget.value = e.target.value
+              .replace(/[^0-9]/g, '')
+              .replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/, '$1-$2-$3'))
+          }
+          required
         />
       </Fieldset>
 

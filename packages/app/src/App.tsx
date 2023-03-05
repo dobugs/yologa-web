@@ -50,9 +50,9 @@ function App() {
                   <Route path={PATH.RUNNING_CREW_DETAIL_CHAT} element={<RunningCrewPages.RunningCrewDetailChat />} />
                 </Route>
 
-                <Route element={<LayoutComponent.Layout activeNav={'chat'} />}>
-                  <Route path={PATH.CHAT} element={<ChatPages.Chat />} />
-                </Route>
+                {/*<Route element={<LayoutComponent.Layout activeNav={'chat'} />}>*/}
+                {/*  <Route path={PATH.CHAT} element={<ChatPages.Chat />} />*/}
+                {/*</Route>*/}
 
                 <Route element={<LayoutComponent.Layout headerType={'back'} navVisible={false} />}>
                   <Route path={PATH.CHAT_DETAIL} element={<ChatPages.ChatDetail />} />

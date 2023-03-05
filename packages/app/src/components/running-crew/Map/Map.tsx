@@ -1,18 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import GoogleMap from 'components/GoogleMap';
 import { wrap } from './style';
-import { useGoogleMapApi } from '@common/map';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { MapStore } from 'stores';
+import { useMapProvider } from '@common/map/src';
+import { useEffectOnce, useWatchPosition } from '@common/utils/hooks';
+import { GEOLOCATION_STATUS_MESSAGE } from 'components/running-crew/Map/constants';
+import useToastMessage from 'hooks/useToastMessage';
 
-interface Props {
-  api: typeof google;
-}
+function Map() {
+  const toast = useToastMessage();
+  const { api } = useMapProvider();
+  const [watcher, setWatcher] = useRecoilState(MapStore.watchState);
+  const { status, position, watch, stop, getCurrentWatchId } = useWatchPosition(watcher.watchId);
 
-function Map({ api }: Props) {
-  const mapOptions = useRecoilValue(MapStore.mapOptionsState);
-  const { createMap } = useGoogleMapApi(api, mapOptions);
+  useEffect(() => {
+    GEOLOCATION_STATUS_MESSAGE[status] && toast.info(GEOLOCATION_STATUS_MESSAGE[status]);
+  }, [status]);
 
-  return <div ref={ref => ref && createMap(ref)} css={wrap}></div>;
+  useEffect(() => {
+    setWatcher(prev => ({ ...prev, position, status }));
+  }, [status, position]);
+
+  useEffectOnce(() => {
+    watch();
+    setWatcher(prev => ({ ...prev, watchId: getCurrentWatchId() }));
+  });
+
+  return (
+    <div css={wrap}>
+      <GoogleMap api={api as typeof google} currentPosition={watcher.position} />
+    </div>
+  );
 }
 
 export default Map;

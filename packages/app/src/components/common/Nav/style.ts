@@ -5,7 +5,6 @@ const nav: CSSObject = {
   position: 'fixed',
   bottom: 0,
   left: 0,
-  zIndex: 1000,
   width: '100%',
   background: '#fff',
   boxShadow: 'rgba(0, 0, 0, 0.1) 0 -4px 4px -4px',
@@ -23,6 +22,7 @@ const wrap: CSSObject = {
 const button = (theme: Theme): CSSObject => ({
   width: '100%',
   height: '100%',
+  borderRadius: 12,
   ...clickable(theme),
 
   '& img': {

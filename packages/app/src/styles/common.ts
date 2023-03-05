@@ -1,7 +1,6 @@
 import { CSSObject, Theme } from '@emotion/react';
 
 const clickable = (theme: Theme): CSSObject => ({
-  borderRadius: 3,
   transition: 'background-color 0.1s ease-out',
 
   '&:active': {
