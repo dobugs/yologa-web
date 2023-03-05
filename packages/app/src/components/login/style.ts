@@ -1,9 +1,14 @@
 import { CSSObject } from '@emotion/react';
 import { PROVIDER } from 'data/oauth';
+import { clickable } from 'styles/common';
+import { theme } from 'styles';
 
 const hero: CSSObject = {
   marginTop: '16rem',
   h1: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 16,
     fontSize: '2.8rem',
     fontWeight: 600,
 
@@ -36,6 +41,7 @@ const actionButton = (type: (typeof PROVIDER)[keyof typeof PROVIDER]): CSSObject
   backgroundColor: type === 'kakao' ? '#FEE500' : '#fff',
   height: '5.4rem',
   width: '100%',
+  ...clickable(theme),
 
   '& > .action-button__content': {
     display: 'flex',
