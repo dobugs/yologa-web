@@ -16,7 +16,7 @@ interface IHeaderState {
 }
 
 /** Nav */
-type NavItemKeyType = 'my-page' | 'running-crews' | 'chat';
+type NavItemKeyType = 'my-page' | 'running-crews';
 
 interface INavState {
   isShow: boolean;
@@ -28,4 +28,10 @@ interface INavIconVariant {
   activated: string;
 }
 
-export type { IModalState, IAlertState, IHeaderState, NavItemKeyType, INavState, INavIconVariant };
+interface ILayerState {
+  close?: boolean;
+  onClose?: () => void;
+  content: React.ReactNode;
+}
+
+export type { IModalState, IAlertState, IHeaderState, NavItemKeyType, INavState, INavIconVariant, ILayerState };

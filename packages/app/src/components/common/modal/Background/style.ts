@@ -1,6 +1,6 @@
-import { CSSObject } from '@emotion/react';
+import { CSSObject, Theme } from '@emotion/react';
 
-const wrap: CSSObject = {
+const wrap = (theme: Theme): CSSObject => ({
   position: 'fixed',
   display: 'flex',
   justifyContent: 'center',
@@ -10,7 +10,6 @@ const wrap: CSSObject = {
   bottom: 0,
   right: 0,
   background: 'rgba(0, 0, 0, 0.7)',
-  zIndex: 999,
 
   '& > *': {
     position: 'fixed',
@@ -18,6 +17,6 @@ const wrap: CSSObject = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
   },
-};
+});
 
 export { wrap };

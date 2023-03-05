@@ -1,4 +1,5 @@
 import { Theme } from '@emotion/react';
+import { clickable } from 'styles/common';
 
 const common = (theme: Theme) => ({
   transition: 'opacity 0.1s ease-out',
@@ -26,4 +27,16 @@ const solid = (theme: Theme) => ({
   ...common(theme),
 });
 
-export { solid };
+const text = (theme: Theme) => ({
+  color: theme.color.primary,
+  backgroundColor: theme.color.white,
+  fontSize: '1.8rem',
+  display: 'block',
+  width: '100%',
+  padding: '1.6rem',
+  borderRadius: '3px',
+
+  ...clickable(theme),
+});
+
+export { solid, text };

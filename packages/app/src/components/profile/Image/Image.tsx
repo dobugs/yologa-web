@@ -39,7 +39,10 @@ function Image({ data, handleImageChange: onImageChange, onError }: Props) {
       <div css={box}>
         <input type="file" name="profile" accept="image/*" onChange={handleImageChange} />
         <figure>
-          <img src={local || data.profileUrl} onError={event => (event.currentTarget.src = DefaultProfileImage)} />
+          <img
+            src={local ?? data.profileUrl ?? DefaultProfileImage}
+            onError={event => (event.currentTarget.src = DefaultProfileImage)}
+          />
         </figure>
       </div>
     </div>

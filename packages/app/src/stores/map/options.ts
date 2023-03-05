@@ -1,6 +1,7 @@
-import { atom } from 'recoil';
+import { atom, DefaultValue, selector } from 'recoil';
+import { MapOptionsType } from '@common/map';
 
-const mapOptionsState = atom<google.maps.MapOptions>({
+const mapOptionsState = atom<MapOptionsType>({
   key: 'mapOptions',
   default: {
     center: {
@@ -19,4 +20,26 @@ const mapOptionsState = atom<google.maps.MapOptions>({
   },
 });
 
-export { mapOptionsState };
+const mapOptionsPosition = selector<Pick<MapOptionsType, 'center' | 'zoom'>>({
+  key: 'mapOptionsCenterZoom',
+  get: ({ get }) => {
+    const state = get(mapOptionsState);
+    return {
+      center: state.center,
+      zoom: state.zoom,
+    };
+  },
+  set: ({ set, reset }, newValue) => {
+    if (newValue instanceof DefaultValue) {
+      reset(mapOptionsState);
+      return;
+    }
+
+    set(mapOptionsState, {
+      center: newValue.center,
+      zoom: newValue.zoom,
+    });
+  },
+});
+
+export { mapOptionsState, mapOptionsPosition };

@@ -12,13 +12,6 @@ const imageWrap: CSSObject = {
   width: 100,
   height: 100,
 
-  img: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'contain',
-    borderRadius: '50%',
-  },
-
   figcaption: {
     visibility: 'hidden',
   },

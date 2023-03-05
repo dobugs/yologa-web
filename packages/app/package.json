@@ -10,6 +10,7 @@
     "deploy:dev": "node scripts/deploy dev",
     "deploy:prod": "node scripts/deploy prod",
     "build": "craco build",
+    "build:debug": "env-cmd -f .env.debug yarn build",
     "build:dev": "env-cmd -f .env.dev yarn build",
     "build:prod": "env-cmd -f .env.prod yarn build",
     "test": "craco test",
