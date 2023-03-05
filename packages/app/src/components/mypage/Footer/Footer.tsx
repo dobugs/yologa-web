@@ -5,6 +5,7 @@ import { wrap, logoutArea } from './style';
 
 function Footer() {
   const { mutate: logout } = AuthQuery.useLogout();
+  // TODO: status 로그아웃 disable 하기
 
   return (
     <div css={wrap}>
