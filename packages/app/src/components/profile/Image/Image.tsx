@@ -5,7 +5,7 @@ import DefaultProfileImage from 'assets/images/default-user.png';
 
 interface Props {
   data: Pick<IProfile, 'profileUrl'>;
-  handleImageChange: (data: FormData) => void;
+  handleImageChange: (data: File) => void;
   onError: () => void;
 }
 
@@ -21,17 +21,7 @@ function Image({ data, handleImageChange: onImageChange, onError }: Props) {
     }
 
     setLocal(URL.createObjectURL(file));
-
-    const formData = new FormData();
-    formData.append(
-      'profile',
-      new File([file], file.name, {
-        lastModified: file.lastModified,
-        type: file.type,
-      }),
-    );
-
-    onImageChange(formData);
+    onImageChange(file);
   };
 
   return (

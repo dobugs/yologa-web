@@ -25,7 +25,7 @@ const box = (theme: Theme): CSSObject => ({
     cursor: 'pointer',
     paddingLeft: 16,
     fontSize: '1.8rem',
-    ...clickable(theme),
+    ...clickable(theme.color.base),
 
     '&::placeholder': {
       fontSize: '1em',

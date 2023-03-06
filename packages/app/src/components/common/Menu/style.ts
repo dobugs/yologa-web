@@ -1,7 +1,8 @@
 import { CSSObject } from '@emotion/react';
 
 const wrap: CSSObject = {
-  padding: '0 2.4rem',
+  padding: '.4rem 0',
+  borderRadius: '12px',
 };
 
 const link: CSSObject = {

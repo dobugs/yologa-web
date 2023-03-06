@@ -20,7 +20,7 @@ function Search() {
             placeholder={'내 주변의 러닝 크루 검색하기'}
             type="text"
             readOnly
-            onFocus={_ =>
+            onClick={_ =>
               add({
                 content: <Result />,
                 close: true,

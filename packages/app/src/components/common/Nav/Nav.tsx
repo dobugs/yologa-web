@@ -29,7 +29,7 @@ function Nav({ isShow, activated }: Props) {
     <nav css={nav}>
       <div css={wrap}>
         {ITEMS.map(o => (
-          <button key={o.path} type="button" onClick={() => handleClick(o.path)} css={button}>
+          <button key={o.path} type="button" onClick={() => setTimeout(() => handleClick(o.path), 200)} css={button}>
             <img src={o.path === activated ? o.icon.activated : o.icon.default} alt={o.path} />
           </button>
         ))}

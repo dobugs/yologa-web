@@ -1,15 +1,24 @@
-import { CSSObject, keyframes } from '@emotion/react';
+import { CSSObject, keyframes, Theme } from '@emotion/react';
+import YologaBackground from 'assets/images/yologa-background.svg';
 
-const wrap: CSSObject = {
+const splashBackground = (theme: Theme): CSSObject => ({
+  backgroundImage: `url(${YologaBackground})`,
+  backgroundSize: `min(calc(690px * 1.8), 180vw)`,
+  backgroundRepeat: `no-repeat`,
+  backgroundPosition: `center`,
+  backgroundColor: theme.color.primary,
+});
+
+const wrap = (theme: Theme): CSSObject => ({
   width: '100%',
   height: 'calc(var(--vh, 1vh) * 100)',
-  backgroundColor: '#fff',
-
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-};
+
+  ...splashBackground(theme),
+});
 
 const appear = keyframes`
   0%{
@@ -38,4 +47,4 @@ const logoArea: CSSObject = {
   },
 };
 
-export { wrap, logoArea };
+export { wrap, logoArea, splashBackground };

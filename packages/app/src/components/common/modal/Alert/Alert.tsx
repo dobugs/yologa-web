@@ -1,3 +1,4 @@
+import { ButtonComponent } from 'components/common';
 import React from 'react';
 import { wrap } from './style';
 
@@ -10,9 +11,9 @@ function Alert({ children, onClose }: React.PropsWithChildren<Props>) {
     <div css={wrap}>
       <div>{children}</div>
       <hr />
-      <button type="button" onClick={onClose}>
+      <ButtonComponent.Text type="button" onClick={onClose}>
         확인
-      </button>
+      </ButtonComponent.Text>
     </div>
   );
 }

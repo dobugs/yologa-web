@@ -1,14 +1,15 @@
-import { CSSObject, Theme } from '@emotion/react';
+import { CSSObject } from '@emotion/react';
 
-const clickable = (theme: Theme): CSSObject => ({
-  transition: 'background-color 0.1s ease-out',
+const clickable = (color: string): CSSObject => ({
+  transition: 'background-color 0.1s ease-out, transform 0.2s ease-in-out',
 
   '&:active': {
-    backgroundColor: theme.color.base,
+    backgroundColor: color,
+    transform: 'scale(0.95)',
   },
 
   ':disabled': {
-    backgroundColor: theme.color.base,
+    backgroundColor: color,
     opacity: 0.5,
     cursor: 'not-allowed',
   },

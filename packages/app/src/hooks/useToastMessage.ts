@@ -1,7 +1,7 @@
 import { ReactNode, useMemo } from 'react';
 import { toast, ToastOptions } from 'react-toastify';
 
-function useToastMessage(options?: Record<string, unknown>) {
+function useToastMessage(options?: Partial<ToastOptions>) {
   const option: ToastOptions = {
     position: 'bottom-center',
     autoClose: 1_000,

@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import * as MenuStyle from './style';
 import { clickable } from 'styles/common';
+import { theme } from 'styles';
 
 interface Props {
   icon: ReactNode;
@@ -12,7 +13,7 @@ interface Props {
 
 function Menu({ icon, children, to }: Props) {
   return (
-    <div css={[MenuStyle.wrap, clickable]}>
+    <div css={[MenuStyle.wrap, clickable(theme.color.base)]}>
       <Link to={to} css={MenuStyle.link}>
         <div css={MenuStyle.iconWrap}>{icon}</div>
         <div css={MenuStyle.name}>{children}</div>

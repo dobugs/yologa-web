@@ -1,4 +1,4 @@
-import React, { Suspense, useMemo } from 'react';
+import React, { Suspense, useEffect, useMemo } from 'react';
 
 import * as ProfileComponent from 'components/profile';
 import { MemberQuery } from 'queries';
@@ -8,6 +8,7 @@ import { IProfile } from 'types/member';
 import useToastMessage from 'hooks/useToastMessage';
 import { wrap, hr } from './style';
 import { useNavigate } from 'react-router-dom';
+import { useImageResize } from '@common/utils/hooks';
 
 function Profile() {
   const toast = useToastMessage();
@@ -17,6 +18,26 @@ function Profile() {
   const { mutateAsync: mutateProfile } = MemberQuery.useUpdateProfile();
 
   const { mutateAsync: mutateImage } = MemberQuery.useUpdateImage();
+
+  const { resize, value: resizedImage } = useImageResize({
+    width: 320,
+  });
+
+  useEffect(() => {
+    if (resizedImage) {
+      const formData = new FormData();
+
+      formData.append(
+        'profile',
+        new File([resizedImage], resizedImage.name, {
+          lastModified: resizedImage.lastModified,
+          type: resizedImage.type,
+        }),
+      );
+
+      mutateImage(formData).then(resultHandler.image.success).catch(resultHandler.image.error);
+    }
+  }, [resizedImage]);
 
   const resultHandler = useMemo(() => {
     return {
@@ -30,10 +51,6 @@ function Profile() {
       },
     };
   }, []);
-
-  const handleImageChange = (data: FormData) => {
-    mutateImage(data).then(resultHandler.image.success).catch(resultHandler.image.error);
-  };
 
   const handleProfileChange = (data: Pick<IProfile, 'nickname' | 'phoneNumber'>) => {
     mutateProfile(data)
@@ -49,7 +66,7 @@ function Profile() {
       <div css={wrap}>
         <ProfileComponent.Image
           data={data as IProfile}
-          handleImageChange={handleImageChange}
+          handleImageChange={resize}
           onError={resultHandler.image.error}
         />
 
