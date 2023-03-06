@@ -36,11 +36,10 @@ const wrap = (theme: Theme): CSSObject => ({
 
   '& > .logo': {
     flex: 1,
-    fontSize: 24,
-    lineHeight: '4.8rem',
     textAlign: 'center',
 
     img: {
+      width: '100%',
       height: '100%',
       objectFit: 'contain',
     },
