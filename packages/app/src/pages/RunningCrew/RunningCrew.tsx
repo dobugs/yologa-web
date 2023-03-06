@@ -1,9 +1,17 @@
 import { RunningCrewComponent } from 'components';
+import { Helmet } from 'react-helmet';
 import React from 'react';
-import { Page } from 'components/common';
 
 function RunningCrew() {
-  return <Page content={<RunningCrewComponent.Container />} />;
+  return (
+    <>
+      <Helmet>
+        <title>러닝 크루 :: 러닝할 땐 욜로가!</title>
+        <meta name="theme-color" content="#fef9ec" />
+      </Helmet>
+      <RunningCrewComponent.Container />
+    </>
+  );
 }
 
 export default RunningCrew;

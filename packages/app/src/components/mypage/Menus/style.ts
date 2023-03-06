@@ -1,13 +1,16 @@
 import { CSSObject, Theme } from '@emotion/react';
 
 const wrap: CSSObject = {
-  margin: '2.4rem 0',
+  marginBottom: '4.8rem',
 };
 
 const list: CSSObject = {
   display: 'flex',
   flexDirection: 'column',
-  gap: 8,
+  margin: '2.4rem',
+  background: '#f6f9fc',
+  padding: '2.4rem 1.6rem',
+  borderRadius: '12px',
 };
 
 const icon: CSSObject = {

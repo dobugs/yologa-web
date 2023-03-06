@@ -1,6 +1,6 @@
 import { CommonComponent } from 'components';
 import React from 'react';
-import { list, wrap, hr } from './style';
+import { list, wrap } from './style';
 import useMenus from './useMenus';
 
 function Menus() {
@@ -19,7 +19,6 @@ function Menus() {
               </li>
             ))}
           </ul>
-          {idx !== items.length - 1 && <hr css={hr} />}
         </React.Fragment>
       ))}
     </div>

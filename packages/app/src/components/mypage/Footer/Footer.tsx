@@ -1,18 +1,18 @@
 import { CommonComponent } from 'components';
+import { ButtonComponent } from 'components/common';
 import { AuthQuery } from 'queries';
 import React from 'react';
 import { wrap, logoutArea } from './style';
 
 function Footer() {
-  const { mutate: logout } = AuthQuery.useLogout();
-  // TODO: status 로그아웃 disable 하기
+  const { mutate: logout, isLoading } = AuthQuery.useLogout();
 
   return (
     <div css={wrap}>
       <div css={logoutArea}>
-        <button type="button" onClick={() => logout()}>
+        <ButtonComponent.Text type="button" onClick={() => logout()} disabled={isLoading}>
           로그아웃
-        </button>
+        </ButtonComponent.Text>
       </div>
       <CommonComponent.Copyright />
     </div>

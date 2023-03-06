@@ -4,7 +4,7 @@ const wrap: CSSObject = {
   width: '218px',
   height: '36px',
   border: '1px solid #ddd',
-  borderRadius: '3px',
+  borderRadius: '12px',
   fontSize: '14px',
   color: '#333',
   appearance: 'none',

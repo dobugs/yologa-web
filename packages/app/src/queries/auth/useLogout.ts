@@ -8,7 +8,7 @@ function useLogout() {
   const { handleLogout } = useHandleLogout();
   const queryClient = useQueryClient();
 
-  const { mutate, mutateAsync, status, data } = useMutation(() => AuthAPI.logout(), {
+  const { mutate, mutateAsync, status, data, isLoading } = useMutation(() => AuthAPI.logout(), {
     onSettled() {
       queryClient.invalidateQueries(getQueryKeys(KEY).all);
       handleLogout();
@@ -20,6 +20,7 @@ function useLogout() {
     mutateAsync,
     status,
     data,
+    isLoading,
   };
 }
 

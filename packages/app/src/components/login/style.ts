@@ -7,7 +7,8 @@ const hero: CSSObject = {
   marginTop: '16rem',
   h1: {
     display: 'flex',
-    flexDirection: 'column',
+    flexWrap: 'wrap',
+    // flexDirection: 'column',
     gap: 16,
     fontSize: '2.8rem',
     fontWeight: 600,
@@ -41,7 +42,7 @@ const actionButton = (type: (typeof PROVIDER)[keyof typeof PROVIDER]): CSSObject
   backgroundColor: type === 'kakao' ? '#FEE500' : '#fff',
   height: '5.4rem',
   width: '100%',
-  ...clickable(theme),
+  ...clickable(theme.color.base),
 
   '& > .action-button__content': {
     display: 'flex',

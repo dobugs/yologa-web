@@ -11,7 +11,7 @@ const login = (theme: Theme): CSSObject => ({
   color: theme.color.white,
   height: 'calc(var(--vh, 1vh) * 100)',
 
-  ...splashBackground,
+  ...splashBackground(theme),
 });
 
 export { login };

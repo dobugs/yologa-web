@@ -24,15 +24,10 @@ const wrap = (theme: Theme): CSSObject => ({
     fontWeight: 500,
     fontSize: '16px',
     textAlign: 'center',
-    color: theme.color.primary,
+    color: theme.color.textGrey1,
     backgroundColor: theme.color.white,
-    transition: 'background-color .1s ease-out',
     borderBottomLeftRadius: '12px',
     borderBottomRightRadius: '12px',
-
-    ':active': {
-      backgroundColor: theme.color.base,
-    },
   },
 });
 

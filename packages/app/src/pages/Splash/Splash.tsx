@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import logo from 'assets/images/yologa-main-text.png';
+import Logo from 'assets/images/yologa-hanguel-white.png';
 import { logoArea, wrap } from 'pages/Splash/style';
 import { useNavigate } from 'react-router-dom';
 import { PATH } from 'data/pages';
@@ -17,7 +17,7 @@ function Splash() {
   return (
     <div css={wrap}>
       <div css={logoArea}>
-        <img src={logo} alt={'logo'} />
+        <img src={Logo} alt={'logo'} />
       </div>
     </div>
   );

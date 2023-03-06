@@ -6,8 +6,9 @@ const wrap = (theme: Theme): CSSObject => ({
   borderColor: theme.color.base,
   fontSize: '1.125em',
   lineHeight: 1.5,
-  borderRadius: '3px',
+  borderRadius: '12px',
   boxSizing: 'border-box',
+  background: '#f6f9fc',
 
   ':focus': {
     outline: 'none',

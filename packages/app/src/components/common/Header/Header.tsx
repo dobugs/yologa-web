@@ -5,9 +5,11 @@ import { header, wrap } from './style';
 import { IoIosArrowBack } from 'react-icons/io';
 import { IHeaderState } from 'types/ui';
 
-type Props = IHeaderState;
+import { theme } from 'styles';
 
-function Header({ type, isShow }: Props) {
+import Logo from 'assets/images/yologa-hanguel-primary.png';
+
+function Header({ type, isShow }: IHeaderState) {
   const navigate = useNavigate();
 
   if (!isShow) {
@@ -20,11 +22,13 @@ function Header({ type, isShow }: Props) {
         <div className="left">
           {type === 'back' && (
             <button type="button" className="back" onClick={() => navigate(-1)}>
-              <IoIosArrowBack size={24} />
+              <IoIosArrowBack size={24} color={theme.color.primary} />
             </button>
           )}
         </div>
-        <h1 className="logo">YOLOGA</h1>
+        <h1 className="logo">
+          <img src={Logo} alt="logo" />
+        </h1>
         <div className="right"></div>
       </div>
     </header>

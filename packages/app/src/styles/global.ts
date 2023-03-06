@@ -20,6 +20,7 @@ const global = css`
       'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
     font-size: 1.6rem;
     background-color: #f2f2f2;
+    color: #1e1702;
   }
 
   * {
