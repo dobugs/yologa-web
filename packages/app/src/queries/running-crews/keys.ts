@@ -1,0 +1,5 @@
+const KEY = ['RUNNING_CREW'];
+const HOSTED = [...KEY, 'HOSTED'];
+const PARTICIPATED = [...KEY, 'PARTICIPATED'];
+
+export { KEY, HOSTED, PARTICIPATED };

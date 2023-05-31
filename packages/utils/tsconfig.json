@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "composite": true,
+    "declaration": true,
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin",
+        "tags": ["styled", "css"]
+      }
+    ]
+  },
+  "include": [
+    "*.ts",
+    "./lib/**/*.ts",
+    "./hooks/**/*.ts",
+    "./types/**/*.ts"
+  ]
+}
