@@ -8,8 +8,8 @@ const args = _.slice(process.argv);
 const pathNode = args.shift();
 const pathShell = args.shift();
 
-const AWS_PROFILE = 'rgh';
-const BUCKET_NAME = 'yologa.dobugs.co.kr';
+const AWS_PROFILE = 'suchagunner';
+const BUCKET_NAME = 'yologa.dev.dobugs.co.kr';
 const RSYNC_EXCLUDE =
   '\
   --exclude=build \
@@ -115,11 +115,11 @@ function deployToAWS(target, buildTarget, distributionId) {
 }
 
 function deployToDevelopment() {
-  deployToAWS('development', 'build:dev', 'EV37IUNJ4OE7Z');
+  deployToAWS('development', 'build:dev', 'E3CH377SLXIZ3I');
 }
 
 function deployToProduction() {
-  deployToAWS('production', 'build:prod', 'E33TDUHW5CQL1Z');
+  deployToAWS('production', 'build:prod', 'E3S944OAUTRPF2');
 }
 
 async function main() {
