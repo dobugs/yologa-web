@@ -18,9 +18,19 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
   },
-  "include": [
-    "src"
-  ]
+  "references": [
+    {
+      "path": "packages/map"
+    },
+    {
+      "path": "packages/app"
+    },
+    {
+      "path": "packages/utils"
+    }
+  ],
+  "include": [],
+  "exclude": ["packages/**/dist/**"]
 }

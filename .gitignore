@@ -2,3 +2,19 @@ node_modules
 .idea
 .DS_Store
 package-lock.json
+
+# Zero-Installs:
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# env
+.env*
+
+# build
+build/*
+packages/**/build
